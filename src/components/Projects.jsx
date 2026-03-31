@@ -23,7 +23,7 @@ const Projects = () => {
     {
       title: 'Analytics Pro',
       category: 'SaaS Dashboard',
-      image: 'https://images.unsplash.com/photo-1551288049-bbbda5366a71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1000&q=80',
       tags: ['React', 'AWS', 'D3.js'],
       size: 'small',
       stats: 'Real-time Data'
