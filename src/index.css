@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Navbar fixed hai isliye section thoda niche se shuru hona chahiye */
+section {
+  scroll-margin-top: 80px;
+}
