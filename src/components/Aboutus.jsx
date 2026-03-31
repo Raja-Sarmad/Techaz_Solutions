@@ -28,7 +28,7 @@ const AboutUs = () => {
             {/* Bottom Small Image */}
             <div className="absolute bottom-[-40px] left-0 z-10 w-[55%] border-[10px] border-white rounded-3xl shadow-2xl overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1522071823991-b9671f903f79?auto=format&fit=crop&w=400&q=80" 
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
                 alt="Team discussion" 
                 className="w-full h-full object-cover"
               />
