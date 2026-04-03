@@ -36,7 +36,7 @@ const Hero = () => {
             </div>
             
             {/* Main Punchline */}
-            <h1 className="text-5xl md:text-7xl font-black text-white leading-[0.95] tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter">
               We Code the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500">
                 Future of Tech
