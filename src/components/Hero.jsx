@@ -59,8 +59,26 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#121212] font-['Poppins']">
       
+<<<<<<< HEAD
       {/* Background Dots Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+=======
+      {/* --- TECH BACKGROUND ELEMENTS --- */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Deep Neon Glows */}
+        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[140px]"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px]"></div>
+        
+        
+        {/* Circuit-style Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.05]" 
+             style={{ 
+               backgroundImage: `radial-gradient(#3b82f6 0.5px, transparent 0.5px)`, 
+               backgroundSize: '30px 30px' 
+             }}>
+        </div>
+      </div>
+>>>>>>> d535538363cf9b0f3837ca870358057df324765f
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
