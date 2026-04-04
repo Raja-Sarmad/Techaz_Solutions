@@ -11,6 +11,7 @@ const Hero = () => {
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[140px]"></div>
         <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px]"></div>
         
+        
         {/* Circuit-style Grid Pattern */}
         <div className="absolute inset-0 opacity-[0.05]" 
              style={{ 
