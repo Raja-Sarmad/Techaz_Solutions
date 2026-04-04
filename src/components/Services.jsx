@@ -1,124 +1,145 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Layout, Settings, ShieldCheck, Cloud, Code, ArrowUpRight } from 'lucide-react';
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { Layout, Settings, ShieldCheck, Cloud, Code, BarChart2, Globe2, Zap, ShoppingCart, ArrowUpRight } from 'lucide-react';
 
 const Services = () => {
-  const services = [
-    {
-      title: 'IT Consulting Services',
-      description: 'Navigate the complexities technology with expert guidance from our IT consultants. We help businesses strategize.',
-      icon: <Settings className="w-6 h-6 text-[#4F46E5]" />,
-      size: 'small'
-    },
-    {
-      title: 'IT Infrastructure Management',
-      description: 'Keep your business running smoothly with reliable optimized IT infrastructure we provide and infrastructure management.',
-      icon: <Layout className="w-6 h-6 text-[#4F46E5]" />,
-      size: 'small'
-    },
-    {
-      title: 'Cybersecurity Services',
-      description: 'Protect your business from evolving cyber threats with our comprehensive cybersecurity solutions. From threat detection and response to data encryption and compliance management, we safeguard your digital assets 24/7.',
-      icon: <ShieldCheck className="w-6 h-6 text-[#4F46E5]" />,
-      size: 'large' // Yeh full width hoga
-    },
-    {
-      title: 'Cloud Solutions',
-      description: 'Leverage the power the cloud to streamline your operations boost scalability. Our cloud solutions offer secure and flexible environments tailored.',
-      icon: <Cloud className="w-6 h-6 text-[#4F46E5]" />,
-      size: 'small'
-    },
-    {
-      title: 'Software Development',
-      description: 'Transform your ideas into reality with our custom software development services. Whether you need mobile apps, web platforms, or enterprise.',
-      icon: <Code className="w-6 h-6 text-[#4F46E5]" />,
-      size: 'small'
+  const canvasRef = useRef(null);
+
+  // Background Animation Logic
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const updateSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    updateSize();
+
+    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
+    const dots = [];
+    const dotCount = 60;
+
+    class Dot {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.r = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = 0.15;
+        ctx.fill();
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        this.draw();
+      }
     }
+
+    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(dot => dot.update());
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  const services = [
+    { title: 'Custom Software', description: 'Tailored enterprise solutions designed to automate your unique business workflows.', icon: <Code /> },
+    { title: 'Web Development', description: 'High-performance, responsive websites built with modern frameworks and clean code.', icon: <Layout /> },
+    { title: 'Mobile Applications', description: 'Native and cross-platform mobile apps providing seamless experiences on iOS & Android.', icon: <Globe2 /> },
+    { title: 'E-Commerce Solutions', description: 'Scalable online stores with secure payment gateways and robust inventory management.', icon: <ShoppingCart /> },
+    { title: 'AI & Automation', description: 'Smart AI integrations to automate repetitive tasks and maximize team productivity.', icon: <Zap /> },
+    { title: 'Cloud Infrastructure', description: 'Secure cloud hosting and DevOps services for 99.9% uptime and data protection.', icon: <Cloud /> },
+    { title: 'Digital Transformation', description: 'Strategic IT consulting to modernize your legacy systems and business processes.', icon: <Settings /> },
+    { title: 'Business Analytics', description: 'Data-driven insights and reporting tools to help you make smarter business decisions.', icon: <BarChart2 /> }
   ];
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.6, ease: "easeOut" } 
-    }
-  };
-
   return (
-    <section className="py-24 bg-[#F8FAFC]">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="relative py-24 font-['Poppins'] bg-[#121212] text-white overflow-hidden">
+      {/* Background Dots Canvas */}
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         
-        {/* Section Header */}
-        <div className="text-center mb-16">
+        {/* --- PROFESSIONAL HEADER --- */}
+        <div className="text-center mb-20">
           <motion.span 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="px-4 py-1.5 bg-blue-50 text-[#4F46E5] rounded-full text-[10px] font-bold tracking-widest uppercase border border-blue-100"
+            initial={{ opacity: 0, y: -10 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            className="px-5 py-2 bg-blue-500/10 text-blue-400 rounded-full text-[11px] font-black tracking-[0.2em] uppercase border border-blue-400/20"
           >
-            Our Service
+            Our Service Stack
           </motion.span>
+          
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1E293B] mt-6 max-w-2xl mx-auto leading-tight"
+            initial={{ opacity: 0, y: 20 }} 
+            whileInView={{ opacity: 1, y: 0 }} 
+            className="text-4xl md:text-6xl font-bold mt-8 leading-tight tracking-tighter max-w-4xl mx-auto"
           >
-            Transforming Businesses with Expert IT Services
+            Future-Proof <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Software Solutions</span> <br />
+            To Scale Your Business
           </motion.h2>
+
+          <motion.p 
+            initial={{ opacity: 0 }} 
+            whileInView={{ opacity: 1 }} 
+            transition={{ delay: 0.3 }}
+            className="text-gray-500 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
+          >
+            We don't just build apps; we engineer scalable systems that drive real growth and digital innovation.
+          </motion.p>
         </div>
 
-        {/* Services Grid (2-1-2 Layout) */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
+        {/* --- SERVICES GRID WITH SIDE SLIDE ANIMATION --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              variants={cardVariants}
-              whileHover={{ y: -5 }}
-              className={`bg-white p-10 rounded-2xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] border border-gray-50 flex flex-col items-start transition-all duration-300 hover:shadow-xl
-                ${service.size === 'large' ? 'md:col-span-2' : 'md:col-span-1'}
-              `}
+              // Animation: Left half from -100, Right half from +100
+              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: (index % 4) * 0.1, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+              whileHover={{ y: -10, borderColor: 'rgba(59, 130, 246, 0.5)' }}
+              className="group bg-white/5 p-8 rounded-2xl border border-white/10 flex flex-col items-start transition-all duration-300 hover:bg-white/[0.08] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)]"
             >
               {/* Icon */}
-              <div className="w-14 h-14 rounded-full bg-[#EEF2FF] flex items-center justify-center mb-6">
-                {service.icon}
+              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                {React.cloneElement(service.icon, { size: 22 })}
               </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-bold text-[#1E293B] mb-4">
+              
+              {/* Title */}
+              <h3 className="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-gray-500 leading-relaxed text-sm mb-6 max-w-3xl">
+              
+              {/* Description */}
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
                 {service.description}
               </p>
 
-              {/* Link */}
-              <a 
-                href="#" 
-                className="group flex items-center gap-1.5 text-sm font-bold text-[#1E293B] hover:text-[#4F46E5] transition-colors"
-              >
-                Learn More
-                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+              {/* Bottom Link */}
+              <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-500/50 group-hover:text-blue-400 transition-all">
+                Learn More 
+                <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </div>
             </motion.div>
           ))}
-        </motion.div>
-
+        </div>
       </div>
     </section>
   );

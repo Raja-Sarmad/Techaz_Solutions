@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Code, ArrowUpRight, Zap, Globe, Cpu } from 'lucide-react';
 
 const Projects = () => {
+  const canvasRef = useRef(null);
+
   const projects = [
     {
       title: 'AI Commerce Engine',
       category: 'Web Development',
       image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       tags: ['Next.js', 'OpenAI', 'Tailwind'],
-      size: 'large', // Yeh card bada hoga
+      size: 'large',
       stats: '40% Boost in Sales'
     },
     {
@@ -30,15 +32,63 @@ const Projects = () => {
     },
   ];
 
+  // --- Theme Consistent Background Logic ---
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const updateSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    updateSize();
+
+    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
+    const dots = [];
+    const dotCount = 60;
+
+    class Dot {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.r = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = 0.15;
+        ctx.fill();
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+        this.draw();
+      }
+    }
+
+    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      dots.forEach(dot => dot.update());
+      requestAnimationFrame(animate);
+    };
+    animate();
+
+    window.addEventListener("resize", updateSize);
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
   return (
-    <section id="projects" className="py-24 bg-[#020408] relative overflow-hidden">
+    <section id="projects" className="relative py-24 bg-[#121212] overflow-hidden font-['Poppins'] text-white">
       
-      {/* --- PREMIUM BACKGROUND DECOR --- */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none"></div>
-      
-      {/* Subtle Grid Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+      {/* Background Dots Canvas (Consistent Theme) */}
+      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -47,7 +97,7 @@ const Projects = () => {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            className="max-w-2xl"
+            className="max-w-2xl text-left"
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-[0.2em] uppercase mb-6">
               <Zap size={14} className="fill-blue-400" />
@@ -77,13 +127,10 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-[#0A101E]/40 backdrop-blur-md flex flex-col
+              className={`group relative rounded-[2.5rem] overflow-hidden border border-white/5 bg-[#1A1A1A]/40 backdrop-blur-md flex flex-col
                 ${project.size === 'large' ? 'lg:col-span-2' : 'lg:col-span-1'}
               `}
             >
-              {/* Spotlight Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-
               {/* Image Container */}
               <div className="relative h-full w-full overflow-hidden">
                 <img 
@@ -104,7 +151,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Hover Overlay with CTA */}
+                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center gap-6">
                    <div className="flex gap-4">
                       <motion.a whileHover={{ scale: 1.1 }} href="#" className="w-14 h-14 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-2xl">
@@ -118,9 +165,9 @@ const Projects = () => {
                 </div>
               </div>
 
-              {/* Content Info (Glass Bottom) */}
+              {/* Info Area */}
               <div className="absolute bottom-0 left-0 w-full p-8 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-sm flex justify-between items-end">
-                <div>
+                <div className="text-left">
                   <h3 className="text-2xl font-black text-white mb-3 tracking-tighter group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
