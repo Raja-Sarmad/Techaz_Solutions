@@ -1,173 +1,151 @@
-import React, { useEffect, useRef } from "react";
-import { ArrowUpRight, Zap, Users, Code2, Rocket, Globe2, ChevronRight } from "lucide-react";
+import React, { useEffect, useState, useRef } from "react";
 
 const Hero = () => {
-  const canvasRef = useRef(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    if (canvasRef.current) {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext('2d');
-      
-      const updateSize = () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      };
-      updateSize();
-
-      const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
-      const dots = [];
-      const dotCount = 80;
-
-      class Dot {
-        constructor() { this.reset(); }
-        reset() {
-          this.x = Math.random() * canvas.width;
-          this.y = Math.random() * canvas.height;
-          this.r = Math.random() * 2 + 1;
-          this.vx = (Math.random() - 0.5) * 0.4;
-          this.vy = (Math.random() - 0.5) * 0.4;
-          this.color = colors[Math.floor(Math.random() * colors.length)];
-        }
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-          ctx.fillStyle = this.color;
-          ctx.globalAlpha = 0.2;
-          ctx.fill();
-        }
-        update() {
-          this.x += this.vx;
-          this.y += this.vy;
-          if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-          this.draw();
-        }
-      }
-
-      for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-      const animate = () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        dots.forEach((dot) => dot.update());
-        requestAnimationFrame(animate);
-      };
-      animate();
-
-      window.addEventListener("resize", updateSize);
-      
-      // Cleanup function
-      return () => {
-        window.removeEventListener("resize", updateSize);
-      };
-    }
-  }, []); // useEffect correctly closed here
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#121212] font-['Poppins']">
-      
-      {/* --- CANVAS BACKGROUND --- */}
-      <canvas 
-        ref={canvasRef} 
-        className="absolute inset-0 z-0 pointer-events-none"
+    <section 
+      ref={containerRef}
+      className="relative min-h-screen w-full bg-[#030303] flex items-center justify-center overflow-hidden px-6 py-24"
+    >
+      {/* 1. THE SPOTLIGHT EFFECT (Maza Factor) */}
+      <div 
+        className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99, 102, 241, 0.1), transparent 40%)`
+        }}
       />
 
-      {/* --- TECH BACKGROUND ELEMENTS --- */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[140px]"></div>
-        <div className="absolute bottom-[-10%] left-[-5%] w-[600px] h-[600px] bg-indigo-600/15 rounded-full blur-[140px]"></div>
+      {/* 2. BACKGROUND ARCHITECTURE */}
+      <div className="absolute inset-0 z-0">
+        {/* Subtle Grid */}
+        <div className="absolute inset-0 opacity-[0.15]" 
+             style={{ backgroundImage: 'linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
         
-        <div className="absolute inset-0 opacity-[0.05]" 
-             style={{ 
-               backgroundImage: `radial-gradient(#3b82f6 0.5px, transparent 0.5px)`, 
-               backgroundSize: '30px 30px' 
-             }}>
-        </div>
+        {/* Glowing Orbs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      {/* 3. MAIN CONTENT CONTAINER */}
+      <div className="relative z-20 max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-16 items-center">
+        
+        {/* LEFT COLUMN (Text) */}
+        <div className="lg:col-span-7 flex flex-col items-start space-y-8">
           
-          {/* LEFT CONTENT */}
-          <div className="lg:col-span-6 space-y-8 animate-in fade-in slide-in-from-left duration-1000">
-            
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-[0.25em] uppercase">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-              </span>
-              Delivering Software Excellence
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-black text-white leading-[1.1] tracking-tighter text-left">
-              Building Innovative <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500">
-                Software Solutions
-              </span>
-            </h1>
-            
-            <p className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed font-medium text-left">
-              We specialize in creating scalable software products for businesses. From custom web & mobile apps to cloud solutions and AI integration, we empower companies to innovate and grow.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-6 pt-6">
-              <button className="group relative w-full sm:w-auto h-[64px] px-10 bg-blue-600 rounded-xl overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_20px_50px_-15px_rgba(37,99,235,0.5)]">
-                <div className="relative flex items-center justify-center gap-3 text-white font-extrabold uppercase tracking-widest text-xs">
-                  Start Your Project
-                  <Rocket size={18} className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </button>
-
-              <button className="group relative w-full sm:w-auto h-[64px] px-10 rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-md transition-all hover:bg-white/10 active:scale-95">
-                <div className="relative flex items-center justify-center gap-3 text-white font-extrabold uppercase tracking-widest text-xs">
-                  Our Portfolio
-                  <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              </button>
-            </div>
+          {/* Availability Badge */}
+          <div className="inline-flex items-center space-x-3 px-3 py-1 mt-8 mb-0 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Available for new projects</span>
           </div>
 
-          {/* RIGHT CONTENT */}
-          <div className="lg:col-span-6 relative">
-            <div className="relative z-10" style={{ animation: 'float 6s ease-in-out infinite' }}>
-              
-              <div className="absolute -top-10 -left-10 p-6 bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl z-20 hidden xl:block shadow-2xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
-                     <Users size={20} />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[10px] text-gray-400 font-bold">CLIENT SATISFACTION</p>
-                    <p className="text-white font-black">99% PROVED</p>
-                  </div>
+          {/* THE HEADING - Sleek & Impactful */}
+          <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.04em] leading-[0.95] text-white font-syne">
+            We architect <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-white to-indigo-400 bg-[length:200%_auto] animate-gradient-flow">
+              Digital Frontiers.
+            </span>
+          </h1>
+
+          <p className="max-w-[500px] text-lg text-slate-400 leading-relaxed font-light tracking-wide">
+            A premium software studio crafting high-performance applications where 
+            <span className="text-white"> engineering meets elegance.</span> We don't just code; we solve.
+          </p>
+
+          {/* ACTION BUTTONS */}
+          <div className="flex flex-wrap gap-5 pt-4">
+            <button className="group relative px-8 py-4 bg-white text-black rounded-xl font-bold overflow-hidden transition-all hover:scale-105 active:scale-95">
+              <span className="relative z-10">Let's Collaborate</span>
+              <div className="absolute inset-0 bg-indigo-100 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            </button>
+            
+            <button className="px-8 py-4 bg-transparent text-white border border-white/10 rounded-xl font-medium hover:bg-white/5 transition-all backdrop-blur-sm">
+              Our Process
+            </button>
+          </div>
+
+          {/* SOCIAL PROOF / LOGOS */}
+          <div className="pt-12 flex flex-col space-y-4">
+            <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Trusted by tech leaders</span>
+            <div className="flex gap-8 opacity-40 grayscale hover:grayscale-0 transition-all">
+               <div className="text-xl font-bold text-white tracking-tighter">FORBES</div>
+               <div className="text-xl font-bold text-white tracking-tighter">STRIPE</div>
+               <div className="text-xl font-bold text-white tracking-tighter">COINBASE</div>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN (Visual "Maza") */}
+        <div className="lg:col-span-5 relative">
+          <div className="relative group">
+            {/* The "Glass" Terminal Window */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            
+            <div className="relative bg-[#0a0a0a] border border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-3xl">
+              {/* Terminal Header */}
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/40" />
+                  <div className="w-3 h-3 rounded-full bg-amber-500/20 border border-amber-500/40" />
+                  <div className="w-3 h-3 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
                 </div>
+                <div className="text-[10px] font-mono text-slate-600 tracking-tighter">studio.config.js</div>
               </div>
 
-              <div className="relative rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
-                 <div className="absolute inset-0 bg-blue-600/10 group-hover:opacity-0 transition-opacity duration-700"></div>
-                 <img 
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" 
-                    alt="Software Engineering" 
-                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
-                 />
+              {/* Code Content */}
+              <div className="space-y-3 font-mono text-sm leading-relaxed">
+                <p className="text-indigo-400">const <span className="text-white">Studio</span> = {'{'}</p>
+                <p className="pl-4 text-slate-400">focus: <span className="text-emerald-400">"Scalable Architecture"</span>,</p>
+                <p className="pl-4 text-slate-400">stack: [<span className="text-blue-400">"React"</span>, <span className="text-blue-400">"Node"</span>, <span className="text-blue-400">"AI"</span>],</p>
+                <p className="pl-4 text-slate-400">performance: <span className="text-amber-400">99.9</span>,</p>
+                <p className="pl-4 text-slate-400">delivery: <span className="text-emerald-400">"On Time"</span></p>
+                <p className="text-indigo-400">{'}'}</p>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 p-6 bg-[#1A1A1A] border border-blue-500/30 rounded-3xl z-20 shadow-2xl shadow-blue-900/40 text-left">
-                  <p className="text-blue-400 font-black text-2xl">24/7</p>
-                  <p className="text-gray-500 text-[10px] font-bold uppercase tracking-widest">Expert Support</p>
+              {/* Floating Success Card */}
+              <div className="absolute -bottom-10 -left-10 bg-indigo-600 p-4 rounded-xl shadow-2xl animate-bounce [animation-duration:5s] hidden md:block">
+                <div className="text-xs text-indigo-100 font-bold mb-1">Success Rate</div>
+                <div className="text-2xl font-bold text-white font-syne">100%</div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
-      {/* Global Style for Floating Animation */}
-      <style dangerouslySetInnerHTML={{ __html: `
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-30px); }
+      {/* 4. SCROLL INDICATOR */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-20">
+        <div className="w-[1px] h-10 bg-gradient-to-b from-white to-transparent" />
+      </div>
+
+      <style jsx>{`
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+        
+        .font-syne { font-family: 'Syne', sans-serif; }
+
+        @keyframes gradient-flow {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
-      `}} />
+
+        .animate-gradient-flow {
+          animation: gradient-flow 6s ease infinite;
+        }
+      `}</style>
     </section>
   );
 };
