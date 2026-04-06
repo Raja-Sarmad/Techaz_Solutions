@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Layout, Settings, ShieldCheck, Cloud, Code, BarChart2, Globe2, Zap, ShoppingCart, ArrowUpRight } from 'lucide-react';
+import { Link } from "react-router-dom"; // Link import kiya
+import { Layout, Settings, Cloud, Code, BarChart2, Globe2, Zap, ShoppingCart, ArrowUpRight } from 'lucide-react';
 
 const Services = () => {
   const canvasRef = useRef(null);
 
-  // Background Animation Logic
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -57,25 +57,23 @@ const Services = () => {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
+  // Har service ke liye 'path' add kiya jo App.jsx ke routes se match karega
   const services = [
-    { title: 'Custom Software', description: 'Tailored enterprise solutions designed to automate your unique business workflows.', icon: <Code /> },
-    { title: 'Web Development', description: 'High-performance, responsive websites built with modern frameworks and clean code.', icon: <Layout /> },
-    { title: 'Mobile Applications', description: 'Native and cross-platform mobile apps providing seamless experiences on iOS & Android.', icon: <Globe2 /> },
-    { title: 'E-Commerce Solutions', description: 'Scalable online stores with secure payment gateways and robust inventory management.', icon: <ShoppingCart /> },
-    { title: 'AI & Automation', description: 'Smart AI integrations to automate repetitive tasks and maximize team productivity.', icon: <Zap /> },
-    { title: 'Cloud Infrastructure', description: 'Secure cloud hosting and DevOps services for 99.9% uptime and data protection.', icon: <Cloud /> },
-    { title: 'Digital Transformation', description: 'Strategic IT consulting to modernize your legacy systems and business processes.', icon: <Settings /> },
-    { title: 'Business Analytics', description: 'Data-driven insights and reporting tools to help you make smarter business decisions.', icon: <BarChart2 /> }
+    { title: 'Custom Software', path: '/custom-software', description: 'Tailored enterprise solutions designed to automate your unique business workflows.', icon: <Code /> },
+    { title: 'Web Development', path: '/web-development', description: 'High-performance, responsive websites built with modern frameworks and clean code.', icon: <Layout /> },
+    { title: 'Mobile Applications', path: '/mobile-apps', description: 'Native and cross-platform mobile apps providing seamless experiences on iOS & Android.', icon: <Globe2 /> },
+    { title: 'E-Commerce Solutions', path: '/ecommerce', description: 'Scalable online stores with secure payment gateways and robust inventory management.', icon: <ShoppingCart /> },
+    { title: 'AI & Automation', path: '/ai-automation', description: 'Smart AI integrations to automate repetitive tasks and maximize team productivity.', icon: <Zap /> },
+    { title: 'Cloud Infrastructure', path: '/cloud-infrastructure', description: 'Secure cloud hosting and DevOps services for 99.9% uptime and data protection.', icon: <Cloud /> },
+    { title: 'Digital Transformation', path: '/digital-transformation', description: 'Strategic IT consulting to modernize your legacy systems and business processes.', icon: <Settings /> },
+    { title: 'Business Analytics', path: '/business-analytics', description: 'Data-driven insights and reporting tools to help you make smarter business decisions.', icon: <BarChart2 /> }
   ];
 
   return (
     <section className="relative py-24 font-['Poppins'] bg-[#121212] text-white overflow-hidden">
-      {/* Background Dots Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
-        
-        {/* --- PROFESSIONAL HEADER --- */}
         <div className="text-center mb-20">
           <motion.span 
             initial={{ opacity: 0, y: -10 }} 
@@ -104,12 +102,10 @@ const Services = () => {
           </motion.p>
         </div>
 
-        {/* --- SERVICES GRID WITH SIDE SLIDE ANIMATION --- */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
             <motion.div
               key={index}
-              // Animation: Left half from -100, Right half from +100
               initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: (index % 4) * 0.1, ease: "easeOut" }}
@@ -117,26 +113,23 @@ const Services = () => {
               whileHover={{ y: -10, borderColor: 'rgba(59, 130, 246, 0.5)' }}
               className="group bg-white/5 p-8 rounded-2xl border border-white/10 flex flex-col items-start transition-all duration-300 hover:bg-white/[0.08] hover:shadow-[0_20px_40px_-20px_rgba(0,0,0,0.5)]"
             >
-              {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
                 {React.cloneElement(service.icon, { size: 22 })}
               </div>
               
-              {/* Title */}
               <h3 className="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">
                 {service.title}
               </h3>
               
-              {/* Description */}
               <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
                 {service.description}
               </p>
 
-              {/* Bottom Link */}
-              <div className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-500/50 group-hover:text-blue-400 transition-all">
+              {/* 'Link' tag ka sahi istemal */}
+              <Link to={service.path} className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-500/50 group-hover:text-blue-400 transition-all cursor-pointer">
                 Learn More 
                 <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
