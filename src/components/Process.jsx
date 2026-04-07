@@ -92,11 +92,11 @@ const Process = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* --- SECTION HEADER --- */}
-        <div className="text-center mb-20 space-y-4">
-          <span className="px-4 py-1.5 bg-blue-500/10 text-blue-400 rounded-full text-[10px] font-black tracking-widest uppercase border border-blue-400/20">
+        <div className="text-center mb-15 space-y-4">
+          <span className="px-4 py-1.5 mb-40 bg-blue-500/10 text-blue-400 rounded-full text-[10px] font-black tracking-widest uppercase border border-blue-400/20">
             Work Process
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold mt-8 text-white tracking-tight">
             How We Get Things Done
           </h2>
         </div>

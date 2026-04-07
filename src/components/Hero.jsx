@@ -17,12 +17,25 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      setMousePos({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
+    };
+
+    // ✅ FIX: canvas & ctx define
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
+
+    // ✅ FIX: updateSize define
     const updateSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     updateSize();
 
     const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
@@ -129,7 +142,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN (Terminal UI - Updated with more lines) */}
         <div className="lg:col-span-5 relative">
           <div className="relative group">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>

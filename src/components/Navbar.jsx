@@ -19,7 +19,7 @@ const Navbar = () => {
     { name: 'Case Studies', href: '#CaseStudies' },
     { name: 'Testimonial', href: '#Testimonial' },
     { name: 'Work', href: '#projects' },
-    { name: 'Faq', href: '#Faq' },
+    { name: 'Faq', href: '#FAQs' },
     { name: 'Blog', href: '#Blog' },
   ];
 
