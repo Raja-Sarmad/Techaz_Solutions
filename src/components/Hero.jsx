@@ -106,7 +106,7 @@ const Hero = () => {
 
       <div className="relative z-20 max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-7 flex flex-col items-start space-y-8">
-          <div className="inline-flex items-center space-x-3 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+          <div className="inline-flex items-center space-x-3 px-3 mb-3 mt-14 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
             <span className="flex h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]" />
             <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Available for new projects</span>
           </div>
@@ -129,13 +129,13 @@ const Hero = () => {
             </div>
           </h1>
 
-          <p className="max-w-[500px] text-lg text-slate-400 leading-relaxed font-light">
+          <p className="max-w-[500px] text-lg mt-0 text-slate-400 leading-relaxed font-light">
             A premium software studio crafting high-performance applications where 
             <span className="text-white"> engineering meets elegance.</span>
           </p>
 
-          <div className="flex flex-wrap gap-5">
-            <button className="group relative px-8 py-4 bg-white text-black rounded-xl font-bold overflow-hidden transition-all hover:scale-105">
+          <div className="flex flex-wrap gap-0">
+            <button className="group relative px-8 py-4 mt-0 bg-white text-black rounded-xl font-bold overflow-hidden transition-all hover:scale-105">
               <span className="relative z-10">Let's Collaborate</span>
               <div className="absolute inset-0 bg-indigo-100 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </button>
