@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // Link import kiya
-import { Layout, Settings, Cloud, Code, BarChart2, Globe2, Zap, ShoppingCart, ArrowUpRight } from 'lucide-react';
+import { Layout, Settings, Cloud, Code, BarChart2, Globe2, Zap, ShoppingCart, ArrowUpRight, Video } from 'lucide-react';
 
 const Services = () => {
   const canvasRef = useRef(null);
@@ -59,14 +59,12 @@ const Services = () => {
 
   // Har service ke liye 'path' add kiya jo App.jsx ke routes se match karega
   const services = [
-    { title: 'Custom Software', path: '/custom-software', description: 'Tailored enterprise solutions designed to automate your unique business workflows.', icon: <Code /> },
+    { title: 'SEO Strategy', path: '/seo-strategy', description: 'Data-driven SEO strategies to boost your online visibility and drive organic traffic.', icon: <Globe2 /> },
     { title: 'Web Development', path: '/web-development', description: 'High-performance, responsive websites built with modern frameworks and clean code.', icon: <Layout /> },
     { title: 'Mobile Applications', path: '/mobile-apps', description: 'Native and cross-platform mobile apps providing seamless experiences on iOS & Android.', icon: <Globe2 /> },
-    { title: 'E-Commerce Solutions', path: '/ecommerce', description: 'Scalable online stores with secure payment gateways and robust inventory management.', icon: <ShoppingCart /> },
-    { title: 'AI & Automation', path: '/ai-automation', description: 'Smart AI integrations to automate repetitive tasks and maximize team productivity.', icon: <Zap /> },
-    { title: 'Cloud Infrastructure', path: '/cloud-infrastructure', description: 'Secure cloud hosting and DevOps services for 99.9% uptime and data protection.', icon: <Cloud /> },
-    { title: 'Digital Transformation', path: '/digital-transformation', description: 'Strategic IT consulting to modernize your legacy systems and business processes.', icon: <Settings /> },
-    { title: 'Business Analytics', path: '/business-analytics', description: 'Data-driven insights and reporting tools to help you make smarter business decisions.', icon: <BarChart2 /> }
+    { title: 'Graphic Design', path: '/graphic-design', description: 'Stunning visual designs that captivate your audience and enhance your brand identity.', icon: <ShoppingCart /> },
+    { title: 'Video Editing', path: '/video-editing', description: 'Professional video editing services to bring your stories to life.', icon: <Video /> },
+    { title: 'Digital Marketing', path: '/digital-marketing', description: 'Comprehensive digital marketing strategies to boost your online presence and drive conversions.', icon: <Settings /> },
   ];
 
   return (

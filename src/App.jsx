@@ -3,14 +3,13 @@ import { useEffect } from 'react';
 import Home from './components/Home';
 
 // 8 Pages Imports
-import CustomSoftware from './pages/CustomSoftware';
+import SEOStrategy from './pages/SEOStrategy';
 import WebDevelopment from './pages/WebDevelopment';
 import MobileApps from './pages/MobileApps';
-import Ecommerce from './pages/Ecommerce';
-import AIAutomation from './pages/AIAutomation';
-import CloudInfrastructure from './pages/CloudInfrastructure';
-import DigitalTransformation from './pages/DigitalTransformation';
-import BusinessAnalytics from './pages/BusinessAnalytics';
+import GraphicDesign from './pages/GraphicDesign';
+import VideoEditing from './pages/VideoEditing';
+import DigitalMarketing from './pages/DigitalMarketing';
+
 
 // --- YE HAI ASLI LOGIC JO SCROLL KAREGI ---
 function ScrollToServices() {
@@ -39,14 +38,13 @@ function App() {
       <ScrollToServices /> {/* Ye har page change ko monitor karega */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/custom-software" element={<CustomSoftware />} />
+        <Route path="/seo-strategy" element={<SEOStrategy />} />
         <Route path="/web-development" element={<WebDevelopment />} />
         <Route path="/mobile-apps" element={<MobileApps />} />
-        <Route path="/ecommerce" element={<Ecommerce />} />
-        <Route path="/ai-automation" element={<AIAutomation />} />
-        <Route path="/cloud-infrastructure" element={<CloudInfrastructure />} />
-        <Route path="/digital-transformation" element={<DigitalTransformation />} />
-        <Route path="/business-analytics" element={<BusinessAnalytics />} />
+        <Route path="/graphic-design" element={<GraphicDesign />} />
+        <Route path="/video-editing" element={<VideoEditing />} />
+        <Route path="/digital-marketing" element={<DigitalMarketing />} />
+        
       </Routes>
     </Router>
   );
