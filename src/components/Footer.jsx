@@ -78,7 +78,7 @@ const Footer = () => {
                 className="flex items-center gap-3 text-gray-500 hover:text-black transition group"
               >
                 <Phone size={16} className="group-hover:scale-110 transition" />
-                +92 300 0000000
+                +92 3262176836
               </a>
 
               <a

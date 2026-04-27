@@ -90,8 +90,8 @@ const Contact = () => {
             <div className="grid grid-cols-1 gap-4">
               {[
                 { icon: <Mail size={20} />, label: 'Email Support', value: 'hello@techflow.com' },
-                { icon: <Phone size={20} />, label: 'Quick Call', value: '+92 300 1234567' },
-                { icon: <MapPin size={20} />, label: 'Headquarters', value: 'Tech Hub, Karachi, Pakistan' }
+                { icon: <Phone size={20} />, label: 'Quick Call', value: '+92 3262176836' },
+                { icon: <MapPin size={20} />, label: 'Headquarters', value: 'Malir-15, Karachi, Pakistan' }
               ].map((item, idx) => (
                 <div key={idx} className="group bg-white/5 border border-white/10 p-5 rounded-2xl flex items-center gap-5 hover:bg-white/[0.08] transition-all">
                   <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
@@ -129,7 +129,7 @@ const Contact = () => {
                     <label className="text-[11px] font-black text-blue-400 uppercase tracking-[0.2em] ml-1">Full Name</label>
                     <input 
                       type="text" 
-                      placeholder="John Doe"
+                      
                       className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-all"
                     />
                   </div>
@@ -137,7 +137,7 @@ const Contact = () => {
                     <label className="text-[11px] font-black text-blue-400 uppercase tracking-[0.2em] ml-1">Email Address</label>
                     <input 
                       type="email" 
-                      placeholder="john@company.com"
+                      
                       className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-all"
                     />
                   </div>
@@ -147,10 +147,10 @@ const Contact = () => {
                   <label className="text-[11px] font-black text-blue-400 uppercase tracking-[0.2em] ml-1">Project Category</label>
                   <div className="relative">
                     <select className="w-full bg-black/20 border border-white/10 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-blue-500 transition-all appearance-none cursor-pointer">
-                        <option className="bg-[#121212]">Custom Software Development</option>
-                        <option className="bg-[#121212]">AI & Machine Learning</option>
-                        <option className="bg-[#121212]">SaaS Solutions</option>
-                        <option className="bg-[#121212]">Cloud Infrastructure</option>
+                        <option className="bg-[#121212]">Web Development</option>
+                        <option className="bg-[#121212]">Graphic Designing</option>
+                        <option className="bg-[#121212]">Seo Analytics</option>
+                        <option className="bg-[#121212]">Digital Marketing</option>
                     </select>
                     <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
                       <Globe size={18} />

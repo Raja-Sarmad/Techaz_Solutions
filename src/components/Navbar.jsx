@@ -14,13 +14,13 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About us', href: '#Aboutus' },
-    { name: 'Services', href: '#services' },
-    { name: 'Case Studies', href: '#CaseStudies' },
-    { name: 'Testimonial', href: '#Testimonial' },
-    { name: 'Work', href: '#projects' },
-    { name: 'Faq', href: '#FAQs' },
-    { name: 'Blog', href: '#Blog' },
+    { name: 'ABOUT US', href: '#Aboutus' },
+    { name: 'SERVICES', href: '#services' },
+    { name: 'CASE STUDIES', href: '#CaseStudies' },
+    { name: 'TESTIMONIALS', href: '#Testimonial' },
+    { name: 'WORK', href: '#projects' },
+    { name: 'FAQs', href: '#Faq' },
+    { name: 'BLOG', href: '#Blog' },
   ];
 
   return (
