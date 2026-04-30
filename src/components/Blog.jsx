@@ -11,21 +11,21 @@ const Blog = () => {
       category: 'Artificial Intelligence',
       date: '12 March 2024',
       author: 'Tech Lead',
-      image: 'https://unsplash.com',
+      image: 'https://www.zoondia.com/wp-content/uploads/2025/11/How-AI-Is-Transforming-Enterprise-Software-Development-1.jpg'
     },
     {
       title: 'The Future of Scalable Cloud Architectures',
       category: 'Cloud Solutions',
       date: '08 March 2024',
       author: 'DevOps Expert',
-      image: 'https://unsplash.com',
+      image: 'https://cdn.prod.website-files.com/65e6d3081f98733f1b369f14/6825e48459d541af18dc7f09_Visual-Key-Components-of-cloud-architecture.webp'
     },
     {
       title: 'Best Practices for Secure SaaS Development',
       category: 'Cyber Security',
       date: '05 March 2024',
       author: 'Security Architect',
-      image: 'https://unsplash.com',
+      image: 'https://xtrasaas.com/wp-content/uploads/2025/10/SaaS-Development-in-2025-Best-Practices-for-Secure-Scalable-and-Future-Ready-Apps-1024x576.jpg'
     },
   ];
 

@@ -8,28 +8,28 @@ const projects = [
     title: "FinTech Dashboard Ecosystem",
     description: "A high-performance banking interface with real-time transaction tracking and AI fraud detection.",
     // Image: Modern Financial Analytics Dashboard
-    image: "https://unsplash.com",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/bc892d218656327.67a4c7ff7ba43.jpg"
   },
   {
     id: "02",
     title: "AI-Powered CRM System",
     description: "Custom enterprise CRM integrated with machine learning for predictive sales analytics.",
     // Image: Artificial Intelligence / Data processing
-    image: "https://unsplash.com",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
   },
   {
     id: "03",
     title: "Healthcare Cloud SaaS",
     description: "HIPAA-compliant patient management system with end-to-end encryption and cloud storage.",
     // Image: Medical Software / Modern Lab Tech
-    image: "https://unsplash.com",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d",
   },
   {
     id: "04",
     title: "E-Commerce Architecture",
     description: "Headless commerce solution built for 1M+ monthly active users with microservices.",
     // Image: Modern Web Development / Coding
-    image: "https://unsplash.com",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
   },
 ];
 
