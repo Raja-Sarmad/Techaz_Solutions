@@ -25,11 +25,13 @@ const Footer = () => {
 
           {/* LOGO */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" custom={0}>
-            <img
-              src="/gallery/company-logo-2.png"
-              alt="logo"
-              className="w-44 -mt-14 -translate-x-4 scale-150 hover:scale-[1.5] origin-top-left transition duration-300 drop-shadow-[0_10px_15px_rgba(0,0,0,0.3)]"
-            />
+            <Link to="/" aria-label="Go to homepage">
+              <img
+                src="/gallery/company-logo-2.png"
+                alt="logo"
+                className="w-44 -mt-14 -translate-x-4 scale-150 hover:scale-[1.5] origin-top-left transition duration-300 drop-shadow-[0_10px_15px_rgba(0,0,0,0.3)]"
+              />
+            </Link>
           </motion.div>
 
           {/* COMPANY */}
@@ -41,7 +43,7 @@ const Footer = () => {
               {[
                 { name: "About", href: "/about" },
                 { name: "Services", href: "/services" },
-                { name: "Portfolio", href: "/work" },
+                { name: "Portfolio", href: "/#projects" },
                 { name: "Contact", href: "/contact" },
               ].map((x, i) => (
                 <li key={i}>

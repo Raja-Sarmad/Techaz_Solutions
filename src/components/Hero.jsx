@@ -1,12 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, animate, useInView } from "framer-motion";
 import { ArrowUpRight, Sparkles, Rocket, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+
+const Counter = ({ value, suffix = "", delay = 0, active = true }) => {
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!active) return;
+    setDisplay(0);
+    const controls = animate(0, value, {
+      duration: 2,
+      delay,
+      ease: [0.23, 1, 0.32, 1],
+      onUpdate: (v) => setDisplay(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [value, delay, active]);
+
+  return (
+    <>
+      {display}
+      {suffix}
+    </>
+  );
+};
 
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [index, setIndex] = useState(0);
   const words = ["Digital Frontiers.", "Future Systems.", "Modern Software.", "Creative Solutions."];
+  const statsRef = React.useRef(null);
+  const statsInView = useInView(statsRef, { once: false, amount: 0.6 });
 
   useEffect(() => {
     const timer = setInterval(() => setIndex((p) => (p + 1) % words.length), 3000);
@@ -89,7 +114,7 @@ const Hero = () => {
               <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
             <Link
-              to="/work"
+              to="/#projects"
               className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-gray-900 font-bold border border-gray-200 shadow-lg hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all"
             >
               <Rocket size={18} className="text-blue-600" />
@@ -97,20 +122,6 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Mini stats */}
-          <div className="flex flex-wrap items-center gap-8 pt-6">
-            {[
-              { val: "150+", lbl: "Projects" },
-              { val: "80+", lbl: "Clients" },
-              { val: "10+", lbl: "Years" },
-              { val: "27", lbl: "Services" },
-            ].map((s) => (
-              <div key={s.lbl}>
-                <p className="text-2xl font-black text-gray-900">{s.val}</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{s.lbl}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* RIGHT - Terminal card */}
@@ -164,6 +175,38 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Bottom center stats */}
+      <motion.div
+        ref={statsRef}
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.6 }}
+        transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
+      >
+        <div className="flex items-center justify-center gap-10 md:gap-16 px-8 py-5 bg-white/70 backdrop-blur-md rounded-3xl border border-white/60 shadow-xl shadow-blue-600/5">
+          {[
+            { val: 150, suffix: "+", lbl: "Projects" },
+            { val: 80, suffix: "+", lbl: "Clients" },
+            { val: 10, suffix: "+", lbl: "Years" },
+            { val: 27, suffix: "", lbl: "Services" },
+          ].map((s, i) => (
+            <motion.div
+              key={s.lbl}
+              initial={{ opacity: 0, y: 30 }}
+              animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.2 + i * 0.15 }}
+              className="text-center"
+            >
+              <p className="text-2xl md:text-3xl font-black text-gray-900">
+                <Counter value={s.val} suffix={s.suffix} delay={0.4 + i * 0.15} active={statsInView} />
+              </p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{s.lbl}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
 
       <style>{`
         .font-syne { font-family: 'Syne', sans-serif; }
