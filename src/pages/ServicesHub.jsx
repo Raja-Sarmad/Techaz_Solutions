@@ -16,9 +16,19 @@ const CATEGORY_ICONS = {
 const ServicesHub = () => {
   return (
     <PageLayout>
-      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 overflow-hidden font-['Poppins'] pt-28 pb-16 px-6">
+      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 overflow-hidden font-['Poppins'] pt-28 pb-20 px-6">
         <SectionBackdrop />
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/20 blur-[120px] rounded-full" />
+        <div
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           {/* Header */}
           <div className="text-center mb-12">
             <Motion.span
@@ -31,7 +41,7 @@ const ServicesHub = () => {
             <Motion.h1
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-3xl md:text-4xl font-bold mt-8 leading-tight tracking-tighter max-w-4xl mx-auto"
+              className="text-4xl md:text-5xl lg:text-6xl font-black mt-8 leading-tight tracking-tighter max-w-4xl mx-auto"
             >
               Future-Proof <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Software & Marketing</span> Solutions
             </Motion.h1>
@@ -44,7 +54,9 @@ const ServicesHub = () => {
               27+ services engineered for the Caribbean market — from marketing engines to full software systems. Explore each one below.
             </Motion.p>
           </div>
+        </div>
 
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           {/* Category Sections */}
           {SERVICE_CATEGORIES.map((cat) => {
             const CatIcon = CATEGORY_ICONS[cat.key] || Layers;
@@ -108,6 +120,13 @@ const ServicesHub = () => {
               Not sure what you need? Let's talk
               <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </Link>
+          </div>
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
+            <div className="w-1 h-2 rounded-full bg-blue-500 animate-bounce" />
           </div>
         </div>
       </section>

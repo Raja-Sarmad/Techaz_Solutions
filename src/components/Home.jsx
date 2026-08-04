@@ -6,6 +6,7 @@ import PageLayout from '../components/PageLayout';
 import Hero from '../components/Hero';
 import AboutUs from '../components/Aboutus';
 import CaseStudies from '../components/CaseStudies';
+import Projects from '../components/Projects';
 import Testimonials from '../components/Testimonials';
 import Process from '../components/Process';
 import FAQ from '../components/faq';
@@ -123,6 +124,9 @@ const Home = () => {
 
       {/* Case Studies */}
       <CaseStudies />
+
+      {/* Projects */}
+      <Projects />
 
       {/* Testimonials */}
       <Testimonials />

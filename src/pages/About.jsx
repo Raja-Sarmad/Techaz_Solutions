@@ -1,51 +1,14 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
-  Target, Rocket, Users, Phone, Mail, Clock, Globe, MessageCircle,
+  Target, Rocket, Users, Phone, Mail, Clock, Globe,
   CheckCircle2, ArrowUpRight, Award, HeartHandshake, Lightbulb, ShieldCheck
 } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
 import SectionBackdrop from '../components/SectionBackdrop';
 import Process from '../components/Process';
-
-const teamMembers = [
-  {
-    name: 'Muhammad Umar',
-    role: 'Founder & CEO',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
-    bio: 'Drives the vision, automotive expertise and regional growth strategy.',
-  },
-  {
-    name: 'Sarah Ahmed',
-    role: 'Head of Marketing',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
-    bio: 'Leads social media, ads and growth campaigns for client brands.',
-  },
-  {
-    name: 'David Thompson',
-    role: 'Lead Developer',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-    bio: 'Architects scalable web platforms and SaaS products end-to-end.',
-  },
-  {
-    name: 'Ayesha Khan',
-    role: 'UI/UX Designer',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80',
-    bio: 'Crafts clean, conversion-focused interfaces that users love.',
-  },
-  {
-    name: 'James Carter',
-    role: 'Software Engineer',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    bio: 'Builds mobile apps and backend systems with precision.',
-  },
-  {
-    name: 'Emily Rodriguez',
-    role: 'Project Manager',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=400&q=80',
-    bio: 'Keeps every delivery on time, on budget and on vision.',
-  },
-];
+import { teamMembers } from '../data/team';
 
 const values = [
   { icon: <ShieldCheck size={24} />, title: 'Reliability', desc: 'We deliver on time, every time — with quality baked into every step.' },
@@ -70,16 +33,25 @@ const About = () => {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-16 px-6 overflow-hidden font-['Poppins']">
+      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
-        <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full" />
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
+        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/20 blur-[120px] rounded-full" />
+        <div
+          className="absolute inset-0 opacity-40 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(#cbd5e1 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <div className="flex items-center gap-2 mb-6">
               <div className="h-[1px] w-8 bg-blue-500"></div>
               <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.3em]">About Techaz Solutions</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter leading-[1.02] mb-8 uppercase">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.02] mb-8 uppercase">
               We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-600">Digital Growth</span> Engines
             </h1>
             <p className="max-w-3xl text-gray-600 text-lg md:text-xl font-light leading-relaxed">
@@ -87,6 +59,13 @@ const About = () => {
               grow with marketing, software and automotive solutions.
             </p>
           </Motion.div>
+        </div>
+
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+          <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
+            <div className="w-1 h-2 rounded-full bg-blue-500 animate-bounce" />
+          </div>
         </div>
       </section>
 
@@ -333,31 +312,26 @@ const About = () => {
                 whileHover={{ y: -8 }}
                 className="group relative rounded-[2.5rem] overflow-hidden border border-gray-200 bg-white hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-500"
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-6 right-6 flex justify-end gap-2">
-                    {[Globe, Mail, MessageCircle].map((Icon, j) => (
-                      <a
-                        key={j}
-                        href="#"
-                        className="w-9 h-9 rounded-full bg-black/30 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 hover:bg-blue-600 hover:border-blue-600"
-                        style={{ transitionDelay: `${j * 60}ms` }}
-                      >
-                        <Icon size={15} />
-                      </a>
-                    ))}
+                <Link to={`/team/${member.id}`}>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent" />
+                    <div className="absolute bottom-4 left-6 right-6 flex justify-end gap-2">
+                      <span className="w-9 h-9 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        <ArrowUpRight size={15} />
+                      </span>
+                    </div>
                   </div>
-                </div>
-                <div className="p-7">
-                  <h4 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h4>
-                  <p className="text-[11px] font-black uppercase tracking-widest text-blue-600 mb-3">{member.role}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{member.bio}</p>
-                </div>
+                  <div className="p-7">
+                    <h4 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h4>
+                    <p className="text-[11px] font-black uppercase tracking-widest text-blue-600 mb-3">{member.role}</p>
+                    <p className="text-gray-500 text-sm leading-relaxed">{member.shortBio}</p>
+                  </div>
+                </Link>
               </Motion.div>
             ))}
           </div>
