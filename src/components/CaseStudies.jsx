@@ -91,27 +91,16 @@ const CaseStudies = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
-          <div className="max-w-xl text-left">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
-              Case Studies
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight leading-tight">
-              Our Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Success Stories.</span>
-            </h2>
-            <p className="text-gray-600 mt-4 text-lg">
-              Explore our portfolio of high-impact software solutions engineered for industry leaders across the Caribbean and beyond.
-            </p>
-          </div>
-
-          <div className="flex gap-4">
-            <button onClick={prev} className="p-4 border border-gray-200 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
-              <ArrowLeft size={20} />
-            </button>
-            <button onClick={next} className="p-4 border border-gray-200 rounded-full hover:bg-blue-600 hover:border-blue-600 transition-all duration-300">
-              <ArrowRight size={20} />
-            </button>
-          </div>
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
+            Case Studies
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight leading-tight">
+            Our Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Success Stories.</span>
+          </h2>
+          <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">
+            Explore our portfolio of high-impact software solutions engineered for industry leaders across the Caribbean and beyond.
+          </p>
         </div>
 
         {/* STATS STRIP */}
@@ -142,7 +131,7 @@ const CaseStudies = () => {
         </div>
 
         {/* SLIDER CONTAINER */}
-        <div className="overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white backdrop-blur-sm shadow-xl shadow-slate-200/60">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white backdrop-blur-sm shadow-xl shadow-slate-200/60">
           <Motion.div
             className="flex"
             animate={{ x: `-${index * 100}%` }}
@@ -193,6 +182,13 @@ const CaseStudies = () => {
               </div>
             ))}
           </Motion.div>
+
+          <button onClick={prev} aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
+            <ArrowLeft size={20} />
+          </button>
+          <button onClick={next} aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
+            <ArrowRight size={20} />
+          </button>
         </div>
 
         {/* INDUSTRY COVERAGE */}

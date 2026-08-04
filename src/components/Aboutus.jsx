@@ -1,117 +1,141 @@
 import React from "react";
-import { CheckCircle2, ArrowUpRight, PhoneCall } from "lucide-react";
+import { Monitor, Brain, Cloud, Layers, ArrowUpRight, PhoneCall } from "lucide-react";
 import { motion } from "framer-motion";
-import SectionBackdrop from './SectionBackdrop';
+
+const features = [
+  {
+    icon: <Monitor size={20} />,
+    title: "Custom Web & Mobile Applications",
+    desc: "Scalable apps engineered for speed, security and growth.",
+  },
+  {
+    icon: <Brain size={20} />,
+    title: "AI & Automation Integration",
+    desc: "Smart AI workflows that cut costs and save valuable time.",
+  },
+  {
+    icon: <Cloud size={20} />,
+    title: "Cloud & DevOps Solutions",
+    desc: "Reliable infrastructure that scales effortlessly with you.",
+  },
+  {
+    icon: <Layers size={20} />,
+    title: "SaaS Product Development",
+    desc: "From idea to launch, SaaS built to sell and scale.",
+  },
+];
 
 const AboutUs = () => {
-  const services = [
-    "Custom Web & Mobile Applications",
-    "Cloud & DevOps Solutions",
-    "AI & Automation Integration",
-    "SaaS Product Development",
-  ];
-
   return (
-    <section className="relative py-16 overflow-hidden bg-gradient-to-b from-slate-50 via-blue-50/50 to-white font-['Poppins']">
-      <SectionBackdrop />
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section className="relative py-12 overflow-hidden bg-white font-['Poppins']">
+      {/* Decorative background */}
+      <div className="absolute -top-32 -left-24 w-[420px] h-[420px] bg-gradient-to-br from-[#3B5BFF]/15 to-[#6C4DFF]/15 blur-[120px] rounded-full" />
+      <div className="absolute -bottom-32 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-[#6C4DFF]/15 to-[#3B5BFF]/15 blur-[120px] rounded-full" />
+      <div className="absolute top-1/2 -translate-y-1/2 -left-16 w-64 h-64 rounded-full border border-[#3B5BFF]/10" />
+      <div className="absolute top-24 right-10 w-40 h-40 rounded-full border border-[#6C4DFF]/10" />
+      <div
+        className="absolute top-16 right-1/3 w-56 h-56 opacity-60"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(59,91,255,0.14) 1.5px, transparent 1.5px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
+      <div
+        className="absolute bottom-16 left-10 w-40 h-40 opacity-60"
+        style={{
+          backgroundImage: "radial-gradient(circle, rgba(108,77,255,0.14) 1.5px, transparent 1.5px)",
+          backgroundSize: "22px 22px",
+        }}
+      />
 
-          {/* LEFT SIDE: Visuals */}
-          <div className="lg:col-span-6 relative">
-            <motion.div 
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+
+          {/* LEFT: Image */}
+          <div className="lg:col-span-6">
+            <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative z-0 ml-auto w-[90%]"
+              className="relative"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" 
-                alt="Our Team" 
-                className="rounded-[2.5rem] shadow-2xl object-cover h-[500px] w-full border border-gray-200"
+              <div className="absolute -inset-3 bg-gradient-to-br from-[#3B5BFF]/20 via-transparent to-[#6C4DFF]/20 blur-2xl rounded-[3rem]" />
+              <img
+                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80"
+                alt="Professional Business Woman"
+                className="relative w-full h-[340px] md:h-[400px] lg:h-[440px] object-cover rounded-[2.5rem] border-[5px] border-white shadow-[0_35px_70px_-20px_rgba(59,91,255,0.35)]"
               />
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="absolute bottom-[-30px] left-0 z-10 w-[55%] border-[8px] border-white rounded-[2rem] shadow-2xl overflow-hidden"
-            >
-              <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" 
-                alt="Development Process" 
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="absolute bottom-[-30px] right-4 z-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white p-8 rounded-[2rem] shadow-2xl w-[45%]"
-            >
-               <h4 className="text-4xl font-black mb-1">10+</h4>
-               <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">
-                 Years of Excellence
-               </p>
             </motion.div>
           </div>
 
-          {/* RIGHT SIDE: Business Content */}
-          <div className="lg:col-span-6 space-y-8">
+          {/* RIGHT: Content */}
+          <div className="lg:col-span-6 space-y-6">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[11px] font-black tracking-widest uppercase">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF] text-white shadow-lg shadow-[#3B5BFF]/25 text-[11px] font-black tracking-[0.2em] uppercase">
                 Partner with Excellence
               </span>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-6 leading-tight tracking-tight">
+
+              <h2 className="text-2xl md:text-3xl xl:text-[2.1rem] font-extrabold text-gray-900 mt-4 leading-[1.15] tracking-tight">
                 Transforming Your Ideas <br />
-                Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Digital Reality</span>
+                Into <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF]">Digital Reality</span>
               </h2>
-              <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+
+              <p className="text-gray-500 mt-4 text-base md:text-lg leading-relaxed font-light">
                 We are a full-service software house dedicated to helping businesses scale. We combine modern technology and business strategy to create solutions that deliver real results.
               </p>
             </motion.div>
 
-            {/* Checklist */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {services.map((item, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+            {/* Feature Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {features.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-3"
+                  className="group bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 hover:border-[#3B5BFF]/30 hover:shadow-xl hover:shadow-[#3B5BFF]/10 transition-all duration-500"
                 >
-                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-1 rounded-full shadow-md shadow-blue-600/20">
-                    <CheckCircle2 className="text-white h-4 w-4" />
+                  <div className="w-10 h-10 rounded-full border-2 border-[#3B5BFF]/20 text-[#3B5BFF] flex items-center justify-center mb-2.5 group-hover:border-transparent group-hover:bg-gradient-to-br group-hover:from-[#3B5BFF] group-hover:to-[#6C4DFF] group-hover:text-white transition-all duration-500">
+                    {item.icon}
                   </div>
-                  <span className="text-gray-700 font-medium text-sm">{item}</span>
+                  <h4 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="h-[1px] bg-gray-100 w-full"></div>
+            <div className="h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
 
-            <div className="flex flex-wrap items-center gap-8">
-              <button className="group flex items-center gap-3 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+            {/* CTA + Contact */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex flex-wrap items-center gap-6"
+            >
+              <button className="group flex items-center gap-3 bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF] hover:shadow-2xl hover:shadow-[#3B5BFF]/30 text-white px-7 py-3.5 rounded-2xl font-bold text-xs uppercase tracking-widest transition-all duration-300 active:scale-95">
                 Build Your Project
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
 
-              <div className="flex items-center gap-4">
-                <div className="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm">
-                  <PhoneCall className="text-blue-600 h-5 w-5" />
+              <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-gray-100 shadow-lg shadow-gray-200/60 rounded-2xl px-5 py-3">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] flex items-center justify-center">
+                  <PhoneCall className="text-white h-5 w-5" />
                 </div>
                 <div>
                   <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-none mb-1 text-nowrap">Direct Line</p>
-                  <p className="text-lg font-bold text-gray-900 tracking-tight text-nowrap">+92 300 1234567</p>
+                  <p className="text-base font-bold text-gray-900 tracking-tight text-nowrap">+92 300 1234567</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
