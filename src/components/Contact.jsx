@@ -1,67 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin, Send, Zap, ShieldCheck, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SectionBackdrop from './SectionBackdrop';
 
 const Contact = () => {
-  const canvasRef = useRef(null);
-
-  // --- Theme Consistent Background Logic ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const updateSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    updateSize();
-
-    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
-    const dots = [];
-    const dotCount = 60;
-
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.15;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(dot => dot.update());
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   return (
-    <section id="contact" className="relative py-12 bg-slate-50 overflow-hidden font-['Poppins'] text-gray-900 text-left">
-      
-      {/* Background Dots Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+    <section id="contact" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white overflow-hidden font-['Poppins'] text-gray-900 text-left">
+      <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -69,8 +14,8 @@ const Contact = () => {
           {/* --- LEFT SIDE: INFO --- */}
           <div className="lg:col-span-5 space-y-12">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black tracking-[0.2em] uppercase">
-                <Zap size={14} className="fill-blue-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-black tracking-[0.2em] uppercase">
+                <Zap size={14} className="fill-white" />
                 Connect With Us
               </div>
               
@@ -93,8 +38,8 @@ const Contact = () => {
                 { icon: <Phone size={20} />, label: 'Quick Call', value: '+92 3262176836' },
                 { icon: <MapPin size={20} />, label: 'Headquarters', value: 'Malir-15, Karachi, Pakistan' }
               ].map((item, idx) => (
-                <div key={idx} className="group bg-gray-100 border border-gray-200 p-5 rounded-2xl flex items-center gap-5 hover:bg-gray-100 transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg">
+                <div key={idx} className="group bg-white border border-gray-200 p-5 rounded-2xl flex items-center gap-5 shadow-lg shadow-blue-600/5 hover:border-blue-400/40 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
                     {item.icon}
                   </div>
                   <div>
@@ -106,12 +51,12 @@ const Contact = () => {
             </div>
 
             {/* Trust Indicator */}
-            <div className="p-6 rounded-3xl bg-gray-100 border border-gray-200 flex items-center gap-5">
+            <div className="p-6 rounded-3xl bg-white border border-gray-200 shadow-lg shadow-blue-600/5 flex items-center gap-5">
               <div className="relative">
-                <div className="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
-                  <ShieldCheck className="text-blue-400" size={28} />
+                <div className="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center border border-blue-200">
+                  <ShieldCheck className="text-blue-600" size={28} />
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white animate-pulse"></div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white animate-pulse"></div>
               </div>
               <div>
                 <h4 className="text-gray-900 font-bold text-sm leading-none mb-1">Secure Response</h4>

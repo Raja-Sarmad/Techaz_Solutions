@@ -11,6 +11,7 @@ import Process from '../components/Process';
 import FAQ from '../components/faq';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
+import SectionBackdrop from '../components/SectionBackdrop';
 import { services, SERVICE_CATEGORIES } from '../data/services';
 
 const featured = services.filter((s) =>
@@ -23,16 +24,17 @@ const Home = () => {
       <Hero />
 
       {/* What We Do - Categories */}
-      <section className="relative bg-white text-gray-900 py-12 px-6 font-['Poppins']">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 text-gray-900 py-16 px-6 font-['Poppins']">
+        <SectionBackdrop />
+        <div className="relative z-10 max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
               What We Do
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight leading-tight text-gray-900">
               One Agency, <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Every Solution.</span>
             </h2>
-            <p className="text-gray-500 mt-4 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">
               Marketing, web development, business software and automotive solutions — everything your business needs to grow in the Caribbean.
             </p>
           </div>
@@ -51,17 +53,17 @@ const Home = () => {
                 >
                   <Link
                     to="/services"
-                    className="block h-full group bg-gray-50 border border-gray-200 rounded-[2rem] p-8 hover:bg-gray-100 hover:border-blue-400/30 transition-all duration-500"
+                    className="block h-full group bg-white border border-gray-200 rounded-[2rem] p-8 shadow-xl shadow-blue-600/5 hover:border-blue-400/40 hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-500"
                   >
                     <div className="flex items-center justify-between mb-6">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-500 group-hover:text-blue-400 transition-colors">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-500 group-hover:text-blue-600 transition-colors">
                         {cat.label}
                       </span>
-                      <span className="text-3xl font-black text-gray-300 group-hover:text-blue-400/30 transition-colors">0{i + 1}</span>
+                      <span className="text-3xl font-black text-gray-200 group-hover:text-blue-300 transition-colors">0{i + 1}</span>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">{cat.label}</h3>
                     <p className="text-gray-500 text-sm mb-6">{count} services available</p>
-                    <span className="inline-flex items-center gap-2 text-blue-400 text-[10px] font-black uppercase tracking-widest">
+                    <span className="inline-flex items-center gap-2 text-blue-600 text-[10px] font-black uppercase tracking-widest">
                       Explore <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </span>
                   </Link>
@@ -82,16 +84,16 @@ const Home = () => {
                   transition={{ delay: i * 0.08 }}
                   viewport={{ once: true }}
                   whileHover={{ y: -10 }}
-                  className="group bg-gray-100 p-8 rounded-2xl border border-gray-200 hover:bg-gray-100 hover:border-blue-400/30 transition-all duration-300"
+                  className="group bg-white p-8 rounded-[2rem] border border-gray-200 shadow-xl shadow-blue-600/5 hover:border-blue-400/40 hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white shadow-lg shadow-blue-600/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300">
                     <Icon size={22} />
                   </div>
-                  <h3 className="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">{service.name}</h3>
+                  <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{service.name}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">{service.short}</p>
                   <Link
                     to={`/services/${service.slug}`}
-                    className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-500/50 group-hover:text-blue-400 transition-all"
+                    className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-600 group-hover:text-blue-700 transition-all"
                   >
                     Learn More <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </Link>
@@ -103,7 +105,7 @@ const Home = () => {
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="group inline-flex items-center gap-3 text-blue-400 text-xs font-black uppercase tracking-widest hover:gap-5 transition-all"
+              className="group inline-flex items-center gap-3 text-blue-600 text-xs font-black uppercase tracking-widest hover:gap-5 transition-all"
             >
               View All 27 Services <ArrowRight size={16} />
             </Link>

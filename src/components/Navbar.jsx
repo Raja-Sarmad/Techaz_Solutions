@@ -17,12 +17,12 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'Services', href: '/services', dropdown: true },
     { name: 'Work', href: '/work' },
     { name: 'Case Studies', href: '/case-studies' },
-    { name: 'FAQs', href: '/faqs' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const isActive = (path) =>

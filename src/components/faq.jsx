@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import SectionBackdrop from './SectionBackdrop';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(0);
-  const canvasRef = useRef(null);
 
   const faqs = [
     {
@@ -29,63 +29,9 @@ const FAQ = () => {
     }
   ];
 
-  // --- Theme Consistent Background Logic ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const updateSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    updateSize();
-
-    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
-    const dots = [];
-    const dotCount = 60;
-
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.15;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(dot => dot.update());
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   return (
-    <section id="Faq" className="relative py-12 bg-slate-50 overflow-hidden font-['Poppins'] text-gray-900">
-      
-      {/* Background Dots Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+    <section id="Faq" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white overflow-hidden font-['Poppins'] text-gray-900">
+      <SectionBackdrop />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
@@ -104,8 +50,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-gray-100 rounded-2xl transition-all duration-300 border ${
-                openIndex === index ? 'border-blue-500/30 bg-gray-100 shadow-2xl' : 'border-gray-200'
+              className={`bg-white rounded-2xl transition-all duration-300 border shadow-lg shadow-blue-600/5 ${
+                openIndex === index ? 'border-blue-500/40 shadow-2xl shadow-blue-600/10' : 'border-gray-200'
               }`}
             >
               {/* Question Part */}
@@ -114,7 +60,7 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
               >
                 <span className={`text-lg font-bold transition-colors ${
-                  openIndex === index ? 'text-blue-600' : 'text-gray-800 hover:text-gray-900'
+                  openIndex === index ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
                 }`}>
                   {faq.question}
                 </span>

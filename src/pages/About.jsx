@@ -5,6 +5,7 @@ import {
   CheckCircle2, ArrowUpRight, Award, HeartHandshake, Lightbulb, ShieldCheck
 } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
+import SectionBackdrop from '../components/SectionBackdrop';
 import Process from '../components/Process';
 
 const teamMembers = [
@@ -69,7 +70,8 @@ const About = () => {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="relative bg-slate-50 text-gray-900 pt-28 pb-16 px-6 overflow-hidden font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-16 px-6 overflow-hidden font-['Poppins']">
+        <SectionBackdrop />
         <div className="absolute top-[-10%] left-[-5%] w-[50%] h-[50%] bg-blue-600/10 blur-[120px] rounded-full" />
         <div className="max-w-7xl mx-auto relative z-10">
           <Motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
@@ -180,7 +182,8 @@ const About = () => {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="relative bg-slate-50 text-gray-900 py-14 px-6 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 text-gray-900 py-14 px-6 font-['Poppins']">
+        <SectionBackdrop />
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
           <Motion.div {...fadeUp} whileHover={{ y: -8 }} className="relative rounded-[2.5rem] border border-gray-200 bg-white p-10 overflow-hidden group shadow-xl shadow-blue-600/5">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600/20 blur-[80px] rounded-full" />
@@ -227,7 +230,8 @@ const About = () => {
       </section>
 
       {/* VALUES */}
-      <section className="relative bg-slate-50 text-gray-900 py-12 px-6 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-12 px-6 font-['Poppins']">
+        <SectionBackdrop />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
@@ -303,7 +307,8 @@ const About = () => {
       </section>
 
       {/* TEAM */}
-      <section className="relative bg-slate-50 text-gray-900 py-12 px-6 border-t border-gray-100 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-12 px-6 border-t border-gray-100 font-['Poppins']">
+        <SectionBackdrop />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">

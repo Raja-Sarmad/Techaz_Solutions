@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 
 const PALETTES = {
   blue: {
-    text: 'text-blue-400',
+    text: 'text-blue-600',
     soft: 'bg-blue-500/10',
     border: 'border-blue-400/30',
     ring: 'border-blue-400/30',
@@ -20,7 +20,7 @@ const PALETTES = {
     solidHover: 'hover:bg-blue-700',
   },
   cyan: {
-    text: 'text-cyan-400',
+    text: 'text-cyan-600',
     soft: 'bg-cyan-500/10',
     border: 'border-cyan-400/30',
     ring: 'border-cyan-400/30',
@@ -31,7 +31,7 @@ const PALETTES = {
     solidHover: 'hover:bg-cyan-700',
   },
   green: {
-    text: 'text-emerald-400',
+    text: 'text-emerald-600',
     soft: 'bg-emerald-500/10',
     border: 'border-emerald-400/30',
     ring: 'border-emerald-400/30',
@@ -42,7 +42,7 @@ const PALETTES = {
     solidHover: 'hover:bg-emerald-700',
   },
   amber: {
-    text: 'text-amber-400',
+    text: 'text-amber-600',
     soft: 'bg-amber-500/10',
     border: 'border-amber-400/30',
     ring: 'border-amber-400/30',
@@ -53,7 +53,7 @@ const PALETTES = {
     solidHover: 'hover:bg-amber-700',
   },
   red: {
-    text: 'text-red-400',
+    text: 'text-red-600',
     soft: 'bg-red-500/10',
     border: 'border-red-400/30',
     ring: 'border-red-400/30',
@@ -64,7 +64,7 @@ const PALETTES = {
     solidHover: 'hover:bg-red-700',
   },
   pink: {
-    text: 'text-pink-400',
+    text: 'text-pink-600',
     soft: 'bg-pink-500/10',
     border: 'border-pink-400/30',
     ring: 'border-pink-400/30',
@@ -75,7 +75,7 @@ const PALETTES = {
     solidHover: 'hover:bg-pink-700',
   },
   purple: {
-    text: 'text-purple-400',
+    text: 'text-purple-600',
     soft: 'bg-purple-500/10',
     border: 'border-purple-400/30',
     ring: 'border-purple-400/30',
@@ -86,7 +86,7 @@ const PALETTES = {
     solidHover: 'hover:bg-purple-700',
   },
   indigo: {
-    text: 'text-indigo-400',
+    text: 'text-indigo-600',
     soft: 'bg-indigo-500/10',
     border: 'border-indigo-400/30',
     ring: 'border-indigo-400/30',
@@ -97,7 +97,7 @@ const PALETTES = {
     solidHover: 'hover:bg-indigo-700',
   },
   rose: {
-    text: 'text-rose-400',
+    text: 'text-rose-600',
     soft: 'bg-rose-500/10',
     border: 'border-rose-400/30',
     ring: 'border-rose-400/30',
@@ -108,7 +108,7 @@ const PALETTES = {
     solidHover: 'hover:bg-rose-700',
   },
   orange: {
-    text: 'text-orange-400',
+    text: 'text-orange-600',
     soft: 'bg-orange-500/10',
     border: 'border-orange-400/30',
     ring: 'border-orange-400/30',
@@ -304,7 +304,7 @@ const ServicePage = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-semibold hover:border-white/30 hover:bg-gray-100 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-200 bg-gray-50 text-gray-700 text-sm font-semibold hover:border-blue-400/40 hover:bg-gray-100 transition-all"
               >
                 <Package size={14} className={p.text} />
                 {c}

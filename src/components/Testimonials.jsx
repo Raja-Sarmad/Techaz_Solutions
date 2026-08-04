@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
+import SectionBackdrop from './SectionBackdrop';
 
 const Testimonials = () => {
-  const canvasRef = useRef(null);
-
   const reviews = [
     {
       name: "Alexander Wright",
@@ -22,68 +21,13 @@ const Testimonials = () => {
 
   const [current, setCurrent] = useState(0);
 
-  // --- Background Dots Logic ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    const updateSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    updateSize();
-
-    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
-    const dots = [];
-    const dotCount = 60;
-
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.15;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(dot => dot.update());
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   const next = () => setCurrent((prev) => (prev + 1) % reviews.length);
   const prev = () => setCurrent((prev) => (prev === 0 ? reviews.length - 1 : prev - 1));
 
   return (
     // Top padding ko pt-32 se pt-12 (ya pt-16) kr diya hy
-    <section id="Testimonial" className="relative pt-12 pb-12 overflow-hidden bg-white font-['Poppins']">
-      
-      {/* Background Dots Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-40"></canvas>
+    <section id="Testimonial" className="relative pt-16 pb-16 overflow-hidden bg-gradient-to-b from-white via-blue-50/40 to-slate-50 font-['Poppins']">
+      <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         
@@ -147,7 +91,7 @@ const Testimonials = () => {
                 </div>
                 <div>
                   <h4 className="text-lg md:text-xl font-bold text-gray-900 leading-tight">{reviews[current].name}</h4>
-                  <p className="text-[10px] md:text-xs text-blue-400 font-bold tracking-widest uppercase mt-1">{reviews[current].role}</p>
+                  <p className="text-[10px] md:text-xs text-blue-600 font-bold tracking-widest uppercase mt-1">{reviews[current].role}</p>
                 </div>
               </div>
             </motion.div>

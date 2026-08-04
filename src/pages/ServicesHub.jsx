@@ -3,6 +3,7 @@ import { motion as Motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Layers, Globe2, Wrench, Car } from 'lucide-react';
 import PageLayout from '../components/PageLayout';
+import SectionBackdrop from '../components/SectionBackdrop';
 import { services, SERVICE_CATEGORIES } from '../data/services';
 
 const CATEGORY_ICONS = {
@@ -15,7 +16,8 @@ const CATEGORY_ICONS = {
 const ServicesHub = () => {
   return (
     <PageLayout>
-      <section className="relative bg-slate-50 text-gray-900 overflow-hidden font-['Poppins'] pt-28 pb-16 px-6">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 overflow-hidden font-['Poppins'] pt-28 pb-16 px-6">
+        <SectionBackdrop />
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header */}
           <div className="text-center mb-12">
@@ -37,7 +39,7 @@ const ServicesHub = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-gray-500 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
+              className="text-gray-600 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
             >
               27+ services engineered for the Caribbean market — from marketing engines to full software systems. Explore each one below.
             </Motion.p>
@@ -76,7 +78,7 @@ const ServicesHub = () => {
                         <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-all duration-300">
                           <Icon size={22} />
                         </div>
-                        <h3 className="text-lg font-bold mb-3 group-hover:text-blue-400 transition-colors">
+                        <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
                           {service.name}
                         </h3>
                         <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
@@ -84,7 +86,7 @@ const ServicesHub = () => {
                         </p>
                         <Link
                           to={`/services/${service.slug}`}
-                          className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-500/50 group-hover:text-blue-400 transition-all"
+                          className="flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-blue-600 group-hover:text-blue-700 transition-all"
                         >
                           Learn More
                           <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

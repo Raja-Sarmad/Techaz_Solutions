@@ -1,10 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowUpRight } from 'lucide-react';
+import SectionBackdrop from './SectionBackdrop';
 
 const Blog = () => {
-  const canvasRef = useRef(null);
-
   const posts = [
     {
       title: 'How AI is Transforming Modern Enterprise Software',
@@ -29,63 +28,9 @@ const Blog = () => {
     },
   ];
 
-  // --- Theme Consistent Background Logic ---
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const updateSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    updateSize();
-
-    const colors = ["#22d3ee", "#a78bfa", "#f472b6"];
-    const dots = [];
-    const dotCount = 60;
-
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.15;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach(dot => dot.update());
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
-
   return (
-    <section id="Blog" className="relative py-12 bg-white overflow-hidden font-['Poppins'] text-gray-900 text-left">
-      
-      {/* Background Dots Canvas */}
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+    <section id="Blog" className="relative py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 overflow-hidden font-['Poppins'] text-gray-900 text-left">
+      <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
@@ -128,11 +73,11 @@ const Blog = () => {
                 {/* Meta Info */}
                 <div className="flex items-center gap-6 mb-4 text-gray-600 text-xs font-bold uppercase tracking-widest">
                   <div className="flex items-center gap-2">
-                    <Calendar size={14} className="text-blue-400" />
+                    <Calendar size={14} className="text-blue-600" />
                     <span>{post.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <User size={14} className="text-blue-400" />
+                    <User size={14} className="text-blue-600" />
                     <span>{post.author}</span>
                   </div>
                 </div>
@@ -143,7 +88,7 @@ const Blog = () => {
                 </h3>
 
                 {/* Action Link */}
-                <div className="inline-flex items-center gap-2 text-sm font-bold text-blue-400 group-hover:gap-4 transition-all uppercase tracking-widest">
+                <div className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 group-hover:gap-4 transition-all uppercase tracking-widest">
                   Read Article 
                   <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>

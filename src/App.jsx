@@ -9,7 +9,6 @@ import ServicesHub from './pages/ServicesHub';
 import CaseStudiesPage from './pages/CaseStudies';
 import Work from './pages/Work';
 import FaqsPage from './pages/Faqs';
-import BlogPage from './pages/Blog';
 import ContactPage from './pages/Contact';
 
 // Har route change par page top se start ho
@@ -35,7 +34,6 @@ function App() {
         <Route path="/case-studies" element={<CaseStudiesPage />} />
         <Route path="/work" element={<Work />} />
         <Route path="/faqs" element={<FaqsPage />} />
-        <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<Home />} />
       </Routes>

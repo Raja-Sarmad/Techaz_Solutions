@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code, ArrowUpRight, Zap, Globe, Cpu } from 'lucide-react';
+import SectionBackdrop from './SectionBackdrop';
 
 const ALL_PROJECTS = [
   {
@@ -180,54 +181,14 @@ const Modal = ({ project, onClose }) => {
 };
 
 const Projects = () => {
-  const canvasRef = useRef(null);
   const [filter, setFilter] = useState('All');
   const [active, setActive] = useState(null);
 
   const filtered = filter === 'All' ? ALL_PROJECTS : ALL_PROJECTS.filter(p => p.category === filter);
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    const updateSize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-    updateSize();
-    const colors = ['#22d3ee', '#a78bfa', '#f472b6'];
-    const dots = [];
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.15;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx; this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-    for (let i = 0; i < 60; i++) dots.push(new Dot());
-    const animate = () => { ctx.clearRect(0, 0, canvas.width, canvas.height); dots.forEach(d => d.update()); requestAnimationFrame(animate); };
-    animate();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-
   return (
-    <section className="relative min-h-screen bg-slate-50 text-gray-900 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
-      {/* Background elements */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-30" />
+    <section className="relative min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
+      <SectionBackdrop dotOpacity="opacity-25" />
      
       <div className="relative z-10 max-w-7xl mx-auto">
         
@@ -311,7 +272,7 @@ const Projects = () => {
             { icon: Globe, lbl: 'Global Delivery' },
             { icon: Cpu, lbl: 'AI Integrated' },
             { icon: Zap, lbl: 'Fastest Execution' }
-          ].map((item, i) => (
+          ].map((item) => (
             <div key={item.lbl} className="flex items-center gap-4">
               <item.icon size={20} />
               <span className="text-xs font-bold tracking-[0.2em] uppercase">{item.lbl}</span>

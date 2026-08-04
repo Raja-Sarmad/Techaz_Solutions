@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ExternalLink, TrendingUp, Zap, Users, Globe } from 'lucide-react';
+import SectionBackdrop from './SectionBackdrop';
 
 const projects = [
   {
@@ -64,58 +65,6 @@ const extended = [projects[projects.length - 1], ...projects, projects[0]];
 const CaseStudies = () => {
   const [index, setIndex] = useState(1);
   const [transition, setTransition] = useState(true);
-  const canvasRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const updateSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    updateSize();
-
-    const colors = ['#22d3ee', '#a78bfa', '#f472b6'];
-    const dots = [];
-    const dotCount = 50;
-
-    class Dot {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.r = Math.random() * 2 + 1;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.color = colors[Math.floor(Math.random() * colors.length)];
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.12;
-        ctx.fill();
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-        this.draw();
-      }
-    }
-
-    for (let i = 0; i < dotCount; i++) dots.push(new Dot());
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      dots.forEach((dot) => dot.update());
-      requestAnimationFrame(animate);
-    };
-    animate();
-
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
 
   const next = () => setIndex((prev) => prev + 1);
   const prev = () => setIndex((prev) => prev - 1);
@@ -136,8 +85,8 @@ const CaseStudies = () => {
   }, [index]);
 
   return (
-    <section id="CaseStudies" className="relative py-12 bg-slate-50 overflow-hidden font-['Poppins'] text-gray-900">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
+    <section id="CaseStudies" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white overflow-hidden font-['Poppins'] text-gray-900">
+      <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
@@ -214,7 +163,7 @@ const CaseStudies = () => {
                 {/* Content Section */}
                 <div className="w-full lg:w-2/5 space-y-6 text-left">
                   <div className="flex items-center gap-4">
-                    <p className="text-blue-400 font-black text-2xl tracking-tighter">#{item.id}</p>
+                    <p className="text-blue-600 font-black text-2xl tracking-tighter">#{item.id}</p>
                     <div className="h-[1px] flex-grow bg-gray-100"></div>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold leading-tight">
