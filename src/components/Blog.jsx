@@ -82,7 +82,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <section id="Blog" className="relative py-24 bg-[#121212] overflow-hidden font-['Poppins'] text-white text-left">
+    <section id="Blog" className="relative py-12 bg-white overflow-hidden font-['Poppins'] text-gray-900 text-left">
       
       {/* Background Dots Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
@@ -90,12 +90,12 @@ const Blog = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* --- SECTION HEADER --- */}
-        <div className="text-center mb-16 space-y-4">
-          <span className="px-4 py-1.5 bg-blue-500/10 text-blue-400 rounded-full text-[10px] font-black tracking-widest uppercase border border-blue-400/20">
+        <div className="text-center mb-10 space-y-4">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
             OUR INSIGHTS
           </span>
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
-            Latest Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Updates.</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+            Latest Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Updates.</span>
           </h2>
         </div>
 
@@ -108,7 +108,7 @@ const Blog = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer bg-white/5 border border-white/10 rounded-3xl overflow-hidden hover:bg-white/[0.08] transition-all duration-500"
+              className="group cursor-pointer bg-white border border-gray-200 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-1 transition-all duration-500"
             >
               {/* Image Container */}
               <div className="relative overflow-hidden aspect-[4/3]">
@@ -126,7 +126,7 @@ const Blog = () => {
               {/* Content Padding */}
               <div className="p-8">
                 {/* Meta Info */}
-                <div className="flex items-center gap-6 mb-4 text-gray-400 text-xs font-bold uppercase tracking-widest">
+                <div className="flex items-center gap-6 mb-4 text-gray-600 text-xs font-bold uppercase tracking-widest">
                   <div className="flex items-center gap-2">
                     <Calendar size={14} className="text-blue-400" />
                     <span>{post.date}</span>
@@ -138,7 +138,7 @@ const Blog = () => {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white leading-snug mb-6 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 leading-snug mb-6 group-hover:text-blue-600 transition-colors">
                   {post.title}
                 </h3>
 

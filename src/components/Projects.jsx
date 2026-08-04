@@ -225,33 +225,33 @@ const Projects = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-[#121212] text-white py-24 md:py-32 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
+    <section className="relative min-h-screen bg-slate-50 text-gray-900 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
       {/* Background elements */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-30" />
      
       <div className="relative z-10 max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_#60a5fa]" />
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_#fff]" />
             Our Masterpieces
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-400">Work.</span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500">Work.</span>
           </h2>
           
-          <p className="max-w-md mx-auto text-white/40 text-base leading-relaxed mb-10">
+          <p className="max-w-md mx-auto text-gray-500 text-base leading-relaxed mb-10">
             From AI-driven platforms to mobile apps — built for ambitious teams worldwide.
           </p>
 
-          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-xl">
+          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-white border border-gray-200 rounded-full backdrop-blur-xl shadow-lg shadow-blue-600/5">
             {FILTERS.map(f => (
               <button
                 key={f}
                 className={`px-5 py-2 rounded-full text-[11px] font-bold tracking-wider transition-all duration-300 ${
-                  filter === f ? 'bg-blue-600 text-white' : 'text-white/40 hover:text-white'
+                  filter === f ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900'
                 }`}
                 onClick={() => setFilter(f)}
               >
@@ -262,7 +262,7 @@ const Projects = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 mb-20 border-y border-white/5 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 mb-12 border-y border-gray-200 items-center">
           {[
             ['150+', 'Projects'],
             ['80+', 'Clients'],
@@ -270,9 +270,9 @@ const Projects = () => {
             ['99%', 'Satisfaction']
           ].map(([val, lbl], i) => (
             <div key={val} className="text-center relative">
-              <span className="block text-4xl font-black text-white">{val}</span>
-              <span className="block text-[10px] font-bold tracking-widest uppercase text-white/25 mt-2">{lbl}</span>
-              {i < 3 && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-white/5 hidden md:block" />}
+              <span className="block text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{val}</span>
+              <span className="block text-[10px] font-bold tracking-widest uppercase text-gray-500 mt-2">{lbl}</span>
+              {i < 3 && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-gray-200 hidden md:block" />}
             </div>
           ))}
         </div>
@@ -281,7 +281,7 @@ const Projects = () => {
         <AnimatePresence mode="wait">
           <motion.div
             key={filter}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -298,7 +298,7 @@ const Projects = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 h-14 rounded-2xl bg-white/5 border border-white/10 text-white font-bold text-sm tracking-wide hover:bg-blue-600/20 hover:border-blue-500/40 hover:text-blue-400 transition-all backdrop-blur-xl group"
+            className="px-10 h-14 rounded-2xl bg-white border border-gray-200 text-gray-900 font-bold text-sm tracking-wide hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:border-blue-600 shadow-lg shadow-blue-600/5 transition-all group"
           >
             Explore All Projects 
             <ArrowUpRight size={18} className="inline-block ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -306,7 +306,7 @@ const Projects = () => {
         </div>
 
         {/* Trust Footer */}
-        <div className="mt-24 pt-12 border-t border-white/5 flex flex-wrap justify-center items-center gap-12 grayscale opacity-20 hover:opacity-50 transition-all duration-500">
+        <div className="mt-12 pt-12 border-t border-gray-200 flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:opacity-70 transition-all duration-500">
           {[
             { icon: Globe, lbl: 'Global Delivery' },
             { icon: Cpu, lbl: 'AI Integrated' },

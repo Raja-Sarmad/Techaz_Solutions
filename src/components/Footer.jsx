@@ -1,6 +1,8 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { services } from "../data/services";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -36,15 +38,20 @@ const Footer = () => {
               Company
             </h4>
             <ul className="space-y-3 text-sm">
-              {["About", "Services", "Portfolio", "Contact"].map((x, i) => (
+              {[
+                { name: "About", href: "/about" },
+                { name: "Services", href: "/services" },
+                { name: "Portfolio", href: "/work" },
+                { name: "Contact", href: "/contact" },
+              ].map((x, i) => (
                 <li key={i}>
-                  <a
-                    href={`#${x.toLowerCase()}`}
+                  <Link
+                    to={x.href}
                     className="relative group text-gray-500 hover:text-black transition"
                   >
-                    {x}
+                    {x.name}
                     <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-black transition-all group-hover:w-full"></span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -56,12 +63,15 @@ const Footer = () => {
               Services
             </h4>
             <ul className="space-y-3 text-sm">
-              {["Web Development", "Mobile Apps", "Cloud Solutions", "AI Automation"].map((x, i) => (
-                <li
-                  key={i}
-                  className="text-gray-500 hover:text-black transition cursor-pointer hover:translate-x-1 duration-300"
-                >
-                  {x}
+              {services.slice(0, 6).map((x, i) => (
+                <li key={i}>
+                  <Link
+                    to={`/services/${x.slug}`}
+                    className="relative group text-gray-500 hover:text-black transition"
+                  >
+                    {x.name}
+                    <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-black transition-all group-hover:w-full"></span>
+                  </Link>
                 </li>
               ))}
             </ul>

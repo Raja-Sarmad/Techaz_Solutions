@@ -82,7 +82,7 @@ const FAQ = () => {
   }, []);
 
   return (
-    <section id="Faq" className="relative py-24 bg-[#121212] overflow-hidden font-['Poppins'] text-white">
+    <section id="Faq" className="relative py-12 bg-slate-50 overflow-hidden font-['Poppins'] text-gray-900">
       
       {/* Background Dots Canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none"></canvas>
@@ -90,12 +90,12 @@ const FAQ = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         {/* --- HEADER SECTION --- */}
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center px-4 py-1.5 bg-blue-500/10 text-blue-400 rounded-full text-[10px] font-black tracking-widest uppercase border border-blue-400/20">
+        <div className="text-center mb-10 space-y-4">
+          <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 rounded-full text-[10px] font-black tracking-widest uppercase">
             Frequently Asked Questions
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-tight">
-            Your Questions <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Answered.</span>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+            Your Questions <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Answered.</span>
           </h2>
         </div>
 
@@ -104,8 +104,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-white/5 rounded-2xl transition-all duration-300 border ${
-                openIndex === index ? 'border-blue-500/30 bg-white/[0.08] shadow-2xl' : 'border-white/10'
+              className={`bg-gray-100 rounded-2xl transition-all duration-300 border ${
+                openIndex === index ? 'border-blue-500/30 bg-gray-100 shadow-2xl' : 'border-gray-200'
               }`}
             >
               {/* Question Part */}
@@ -114,11 +114,11 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
               >
                 <span className={`text-lg font-bold transition-colors ${
-                  openIndex === index ? 'text-blue-400' : 'text-gray-200 hover:text-white'
+                  openIndex === index ? 'text-blue-600' : 'text-gray-800 hover:text-gray-900'
                 }`}>
                   {faq.question}
                 </span>
-                <div className={`p-1 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-blue-400' : 'text-gray-500'}`}>
+                <div className={`p-1 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-blue-600' : 'text-gray-500'}`}>
                    <ChevronDown size={22} />
                 </div>
               </button>
@@ -133,8 +133,8 @@ const FAQ = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 md:px-8 pb-8 text-gray-400 leading-relaxed font-medium">
-                      <div className="h-[1px] bg-white/10 w-full mb-6"></div>
+                    <div className="px-6 md:px-8 pb-8 text-gray-600 leading-relaxed font-medium">
+                      <div className="h-[1px] bg-gray-100 w-full mb-6"></div>
                       {faq.answer}
                     </div>
                   </motion.div>

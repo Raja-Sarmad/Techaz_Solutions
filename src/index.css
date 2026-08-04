@@ -4,6 +4,11 @@
   html {
     font-family: 'Syne', sans-serif;
   }
+  body {
+    background-color: #ffffff;
+    color: #111827;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 
