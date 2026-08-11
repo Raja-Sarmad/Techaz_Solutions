@@ -1,7 +1,7 @@
 export const teamMembers = [
   {
     id: 'muhammad-umar',
-    name: 'Muhammad Umar',
+    name: 'Muhammad Nabeed Azam',
     role: 'Founder & CEO',
     image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
     shortBio: 'Drives the vision, automotive expertise and regional growth strategy.',
@@ -23,7 +23,7 @@ export const teamMembers = [
   },
   {
     id: 'sarah-ahmed',
-    name: 'Sarah Ahmed',
+    name: 'Raja Sarmad',
     role: 'Head of Marketing',
     image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
     shortBio: 'Leads social media, ads and growth campaigns for client brands.',
