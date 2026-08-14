@@ -9,6 +9,8 @@ import PageLayout from '../components/PageLayout';
 import SectionBackdrop from '../components/SectionBackdrop';
 import Process from '../components/Process';
 import { teamMembers } from '../data/team';
+import aboutImage from '../assets/about image.png';
+import about2Image from '../assets/about.png';
 
 const values = [
   { icon: <ShieldCheck size={24} />, title: 'Reliability', desc: 'We deliver on time, every time — with quality baked into every step.' },
@@ -301,8 +303,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {teamMembers.map((member, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {teamMembers.slice(0, 2).map((member, i) => (
               <Motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -315,7 +317,7 @@ const About = () => {
                 <Link to={`/team/${member.id}`}>
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={member.image}
+                      src={i === 0 ? aboutImage : about2Image}
                       alt={member.name}
                       className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                     />
