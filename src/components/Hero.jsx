@@ -40,7 +40,7 @@ const Hero = () => {
 
   return (
     <section
-      className="relative min-h-screen w-full bg-gradient-to-b from-slate-50 via-blue-50/50 to-white flex items-center overflow-hidden px-6"
+      className="relative min-h-screen w-full bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 flex items-center overflow-hidden px-6"
       onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
     >
       {/* Decorative color blobs */}
@@ -69,18 +69,18 @@ const Hero = () => {
         {/* LEFT */}
         <div className="lg:col-span-7 flex flex-col items-start space-y-7">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-blue-200 shadow-lg shadow-blue-600/5">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white border border-blue-200 shadow-lg shadow-blue-600/5 dark:bg-gray-900 dark:border-blue-900">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
-            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-600 dark:text-gray-300">
               Available for new projects
             </span>
           </div>
 
           {/* Title */}
-          <h1 className="text-5xl md:text-7xl font-bold tracking-[-0.04em] leading-[1.05] text-gray-900 font-syne">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-[-0.04em] leading-[1.05] text-gray-900 dark:text-gray-100 font-syne">
             We architect <br />
             <span className="relative inline-block h-[1.15em] overflow-hidden align-bottom">
               <AnimatePresence mode="wait">
@@ -98,7 +98,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <p className="max-w-[520px] text-lg text-gray-600 leading-relaxed">
+          <p className="max-w-[520px] text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
             A premium software studio crafting high-performance applications where{" "}
             <span className="text-blue-600 font-semibold">engineering meets elegance.</span>
           </p>
@@ -115,7 +115,7 @@ const Hero = () => {
             </Link>
             <Link
               to="/#projects"
-              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-gray-900 font-bold border border-gray-200 shadow-lg hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all"
+              className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-gray-900 font-bold border border-gray-200 shadow-lg dark:bg-gray-900 dark:text-gray-100 dark:border-gray-700 hover:border-blue-400 hover:text-blue-600 hover:-translate-y-0.5 transition-all"
             >
               <Rocket size={18} className="text-blue-600" />
               View Our Work
@@ -153,24 +153,24 @@ const Hero = () => {
           </div>
 
           {/* Floating chip: top-right */}
-          <div className="absolute -top-6 -right-4 z-10 bg-white rounded-2xl px-5 py-3 shadow-xl border border-blue-100 flex items-center gap-3 animate-float">
+          <div className="absolute -top-6 -right-4 z-10 bg-white rounded-2xl px-5 py-3 shadow-xl border border-blue-100 flex items-center gap-3 animate-float dark:bg-gray-900 dark:border-blue-900">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white">
               <TrendingUp size={16} />
             </div>
             <div>
-              <p className="text-lg font-black text-gray-900 leading-none">+38%</p>
-              <p className="text-[9px] font-bold uppercase tracking-widest text-gray-500">Avg. growth</p>
+              <p className="text-lg font-black text-gray-900 leading-none dark:text-gray-100">+38%</p>
+              <p className="text-[9px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Avg. growth</p>
             </div>
           </div>
 
           {/* Floating chip: bottom-left */}
-          <div className="absolute -bottom-6 -left-4 z-10 bg-white rounded-2xl px-5 py-3 shadow-xl border border-violet-100 flex items-center gap-3 animate-float-delay">
+          <div className="absolute -bottom-6 -left-4 z-10 bg-white rounded-2xl px-5 py-3 shadow-xl border border-violet-100 flex items-center gap-3 animate-float-delay dark:bg-gray-900 dark:border-violet-900">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-white">
               <Sparkles size={16} />
             </div>
             <div>
-              <p className="text-lg font-black text-gray-900 leading-none">AI-Powered</p>
-              <p className="text-[9px] font-bold uppercase tracking-widest text-gray-500">Smart solutions</p>
+              <p className="text-lg font-black text-gray-900 leading-none dark:text-gray-100">AI-Powered</p>
+              <p className="text-[9px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Smart solutions</p>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@ const Hero = () => {
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="flex items-center justify-center gap-10 md:gap-16 px-8 py-5 bg-white/70 backdrop-blur-md rounded-3xl border border-white/60 shadow-xl shadow-blue-600/5">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-8 md:gap-x-16 gap-y-3 px-4 sm:px-8 py-5 bg-white/70 backdrop-blur-md rounded-3xl border border-white/60 shadow-xl shadow-blue-600/5 dark:bg-gray-900/70 dark:border-gray-800">
           {[
             { val: 150, suffix: "+", lbl: "Projects" },
             { val: 80, suffix: "+", lbl: "Clients" },
@@ -199,10 +199,10 @@ const Hero = () => {
               transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.2 + i * 0.15 }}
               className="text-center"
             >
-              <p className="text-2xl md:text-3xl font-black text-gray-900">
+              <p className="text-xl sm:text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-100">
                 <Counter value={s.val} suffix={s.suffix} delay={0.4 + i * 0.15} active={statsInView} />
               </p>
-              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{s.lbl}</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">{s.lbl}</p>
             </motion.div>
           ))}
         </div>

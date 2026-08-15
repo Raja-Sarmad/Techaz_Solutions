@@ -44,7 +44,7 @@ const ScrollToTop = () => {
     >
       <button
         onClick={scrollToTop}
-        className="relative flex items-center justify-center w-14 h-14 bg-white rounded-full shadow-2xl hover:scale-110 transition-transform group"
+        className="relative flex items-center justify-center w-14 h-14 bg-white dark:bg-gray-900 rounded-full shadow-2xl hover:scale-110 transition-transform group"
       >
         {/* Progress Circle (SVG) */}
         <svg className="absolute w-full h-full -rotate-90">
@@ -56,7 +56,7 @@ const ScrollToTop = () => {
             stroke="currentColor"
             strokeWidth="3"
             fill="transparent"
-            className="text-gray-100"
+            className="text-gray-100 dark:text-gray-800"
           />
           {/* Progress Circle (Blue) */}
           <circle

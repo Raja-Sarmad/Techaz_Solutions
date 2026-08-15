@@ -10,7 +10,7 @@ const ContactPage = () => {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
+      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
         <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
@@ -34,7 +34,7 @@ const ContactPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.02] mt-8"
+            className="text-3xl md:text-6xl font-black tracking-tighter leading-[1.02] mt-8"
           >
             Let's Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">Something Epic.</span>
           </Motion.h1>
@@ -43,7 +43,7 @@ const ContactPage = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-gray-600 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
+            className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
           >
             Tell us about your project and our team will get back to you within 2 business hours — no fluff, just a clear path forward.
           </Motion.p>
@@ -62,7 +62,7 @@ const ContactPage = () => {
             ].map((chip) => (
               <span
                 key={chip.text}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white border border-gray-200 shadow-lg shadow-blue-600/5 text-gray-700 text-xs font-bold"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 shadow-lg shadow-blue-600/5 text-gray-700 dark:text-gray-200 text-xs font-bold"
               >
                 <span className="text-blue-600">{chip.icon}</span>
                 {chip.text}
@@ -71,7 +71,7 @@ const ContactPage = () => {
           </Motion.div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
           <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
             <div className="w-1 h-2 rounded-full bg-blue-500 animate-bounce" />
@@ -95,7 +95,7 @@ const ContactPage = () => {
           </p>
           <a
             href="tel:+923262176836"
-            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-12 py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-6 sm:px-12 py-5 sm:py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
           >
             Call +92 326 2176836
             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

@@ -26,7 +26,7 @@ const Testimonials = () => {
 
   return (
     // Top padding ko pt-32 se pt-12 (ya pt-16) kr diya hy
-    <section id="Testimonial" className="relative pt-16 pb-16 overflow-hidden bg-gradient-to-b from-white via-blue-50/40 to-slate-50 font-['Poppins']">
+    <section id="Testimonial" className="relative pt-16 pb-16 overflow-hidden bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 font-['Poppins']">
       <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -39,7 +39,7 @@ const Testimonials = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8 tracking-tight">
           What Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Partners Say</span>
         </h2>
 
@@ -49,14 +49,14 @@ const Testimonials = () => {
           {/* Navigation Arrows */}
           <button 
             onClick={prev}
-            className="absolute left-[-20px] md:left-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all z-20 active:scale-90 bg-white shadow-lg backdrop-blur-sm"
+            className="absolute left-0 sm:left-[-20px] md:left-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all z-20 active:scale-90 bg-white dark:bg-gray-900 shadow-lg dark:shadow-none backdrop-blur-sm"
           >
             <ArrowLeft size={24} />
           </button>
 
           <button 
             onClick={next}
-            className="absolute right-[-20px] md:right-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all z-20 active:scale-90 bg-white shadow-lg backdrop-blur-sm"
+            className="absolute right-0 sm:right-[-20px] md:right-[-40px] top-1/2 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all z-20 active:scale-90 bg-white dark:bg-gray-900 shadow-lg dark:shadow-none backdrop-blur-sm"
           >
             <ArrowRight size={24} />
           </button>
@@ -77,7 +77,7 @@ const Testimonials = () => {
                 ))}
               </div>
 
-              <p className="text-lg md:text-2xl text-gray-700 leading-relaxed italic mb-10 font-medium max-w-3xl">
+              <p className="text-lg md:text-2xl text-gray-700 dark:text-gray-200 leading-relaxed italic mb-10 font-medium max-w-3xl">
                 "{reviews[current].quote}"
               </p>
 
@@ -90,7 +90,7 @@ const Testimonials = () => {
                   />
                 </div>
                 <div>
-                  <h4 className="text-lg md:text-xl font-bold text-gray-900 leading-tight">{reviews[current].name}</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-gray-900 dark:text-gray-100 leading-tight">{reviews[current].name}</h4>
                   <p className="text-[10px] md:text-xs text-blue-600 font-bold tracking-widest uppercase mt-1">{reviews[current].role}</p>
                 </div>
               </div>

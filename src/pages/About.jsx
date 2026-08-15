@@ -9,8 +9,6 @@ import PageLayout from '../components/PageLayout';
 import SectionBackdrop from '../components/SectionBackdrop';
 import Process from '../components/Process';
 import { teamMembers } from '../data/team';
-import aboutImage from '../assets/about image.png';
-import about2Image from '../assets/about.png';
 
 const values = [
   { icon: <ShieldCheck size={24} />, title: 'Reliability', desc: 'We deliver on time, every time — with quality baked into every step.' },
@@ -35,7 +33,7 @@ const About = () => {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
+      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 dark:text-gray-100 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
         <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
@@ -53,17 +51,17 @@ const About = () => {
               <div className="h-[1px] w-8 bg-blue-500"></div>
               <span className="text-blue-600 text-xs font-bold uppercase tracking-[0.3em]">About Techaz Solutions</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.02] mb-8 uppercase">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.02] mb-8 uppercase">
               We Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-600">Digital Growth</span> Engines
             </h1>
-            <p className="max-w-3xl text-gray-600 text-lg md:text-xl font-light leading-relaxed">
+            <p className="max-w-3xl text-gray-600 dark:text-gray-300 text-lg md:text-xl font-light leading-relaxed">
               Techaz Solutions is a full-service digital agency helping businesses across the Caribbean and beyond
               grow with marketing, software and automotive solutions.
             </p>
           </Motion.div>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
           <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
             <div className="w-1 h-2 rounded-full bg-blue-500 animate-bounce" />
@@ -72,7 +70,7 @@ const About = () => {
       </section>
 
       {/* STORY + IMAGE */}
-      <section className="relative bg-white text-gray-900 py-14 px-6 font-['Poppins']">
+      <section className="relative bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 py-14 px-6 font-['Poppins']">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <Motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -81,7 +79,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative z-0 rounded-[2.5rem] overflow-hidden border border-gray-200 shadow-2xl">
+            <div className="relative z-0 rounded-[2.5rem] overflow-hidden border border-gray-200 dark:border-gray-700 shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
                 alt="Our Team Working"
@@ -108,7 +106,7 @@ const About = () => {
               <h2 className="text-3xl md:text-4xl font-bold mt-6 leading-tight tracking-tight">
                 From Vision to <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">World-Class Agency</span>
               </h2>
-              <p className="text-gray-600 mt-6 text-lg leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 mt-6 text-lg leading-relaxed">
                 What started as a small software studio has grown into a trusted digital partner for
                 businesses across the Caribbean region. We combine modern technology with sharp business
                 strategy to build solutions that deliver real, measurable results.
@@ -133,12 +131,12 @@ const About = () => {
                   <div className="bg-gradient-to-br from-blue-500 to-indigo-600 p-1 rounded-full shadow-md shadow-blue-600/20">
                     <CheckCircle2 className="text-white h-4 w-4" />
                   </div>
-                  <span className="text-gray-700 font-medium text-sm">{item}</span>
+                  <span className="text-gray-700 dark:text-gray-200 font-medium text-sm">{item}</span>
                 </Motion.div>
               ))}
             </div>
 
-            <div className="h-[1px] bg-gray-100 w-full"></div>
+            <div className="h-[1px] bg-gray-100 dark:bg-gray-800 w-full"></div>
 
             <Motion.div {...fadeUp} className="flex flex-wrap items-center gap-8">
               <a
@@ -149,12 +147,12 @@ const About = () => {
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
               <div className="flex items-center gap-4">
-                <div className="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm">
+                <div className="bg-white dark:bg-gray-900 p-3 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm">
                   <Phone className="text-blue-600 h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-none mb-1">Direct Line</p>
-                  <p className="text-lg font-bold text-gray-900 tracking-tight">+92 3262176836</p>
+                  <p className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest leading-none mb-1">Direct Line</p>
+                  <p className="text-lg font-bold text-gray-900 dark:text-gray-100 tracking-tight">+92 3262176836</p>
                 </div>
               </div>
             </Motion.div>
@@ -163,29 +161,29 @@ const About = () => {
       </section>
 
       {/* MISSION & VISION */}
-      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 text-gray-900 py-14 px-6 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 py-14 px-6 font-['Poppins']">
         <SectionBackdrop />
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8">
-          <Motion.div {...fadeUp} whileHover={{ y: -8 }} className="relative rounded-[2.5rem] border border-gray-200 bg-white p-10 overflow-hidden group shadow-xl shadow-blue-600/5">
+          <Motion.div {...fadeUp} whileHover={{ y: -8 }} className="relative rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-10 overflow-hidden group shadow-xl shadow-blue-600/5">
             <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600/20 blur-[80px] rounded-full" />
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-all duration-300">
               <Target size={26} />
             </div>
             <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               To empower businesses with technology and marketing that drives real growth.
               We build systems that save time, capture leads and scale revenue — so our clients
               can focus on running their business, not fighting their tools.
             </p>
           </Motion.div>
 
-          <Motion.div {...fadeUp} whileHover={{ y: -8 }} className="relative rounded-[2.5rem] border border-gray-200 bg-white p-10 overflow-hidden group shadow-xl shadow-cyan-600/5">
+          <Motion.div {...fadeUp} whileHover={{ y: -8 }} className="relative rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-10 overflow-hidden group shadow-xl shadow-cyan-600/5">
             <div className="absolute top-0 right-0 w-40 h-40 bg-cyan-500/20 blur-[80px] rounded-full" />
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 shadow-lg shadow-cyan-600/20 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-all duration-300">
               <Rocket size={26} />
             </div>
             <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
               To become the region's most trusted digital partner — known for automotive innovation,
               marketing excellence and software that genuinely moves the needle for every business we touch.
             </p>
@@ -194,8 +192,8 @@ const About = () => {
       </section>
 
       {/* STATS BAND */}
-      <section className="relative bg-white text-gray-900 py-12 px-6 border-t border-gray-100 font-['Poppins']">
-        <Motion.div variants={stagger} initial="initial" whileInView="whileInView" viewport={{ once: true }} className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="relative bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 py-12 px-6 border-t border-gray-100 dark:border-gray-800 font-['Poppins']">
+        <Motion.div variants={stagger} initial="initial" whileInView="whileInView" viewport={{ once: true }} className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {[
             ['150+', 'Projects Delivered'],
             ['80+', 'Happy Clients'],
@@ -204,14 +202,14 @@ const About = () => {
           ].map(([val, lbl], i) => (
             <Motion.div key={i} variants={fadeUp} className="text-center">
               <span className="block text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{val}</span>
-              <span className="block text-[10px] font-bold tracking-widest uppercase text-gray-500 mt-2">{lbl}</span>
+              <span className="block text-[10px] font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400 mt-2">{lbl}</span>
             </Motion.div>
           ))}
         </Motion.div>
       </section>
 
       {/* VALUES */}
-      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-12 px-6 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 py-12 px-6 font-['Poppins']">
         <SectionBackdrop />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
@@ -231,13 +229,13 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group bg-white border border-gray-200 rounded-3xl p-8 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-500"
+                className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-500"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-all duration-300">
                   {v.icon}
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2">{v.title}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{v.desc}</p>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{v.title}</h4>
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{v.desc}</p>
               </Motion.div>
             ))}
           </div>
@@ -245,7 +243,7 @@ const About = () => {
       </section>
 
       {/* COMPANY DETAILS */}
-      <section className="relative bg-white text-gray-900 py-12 px-6 border-t border-gray-100 font-['Poppins']">
+      <section className="relative bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 py-12 px-6 border-t border-gray-100 dark:border-gray-800 font-['Poppins']">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
@@ -271,16 +269,16 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group bg-white border border-gray-200 rounded-3xl p-8 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-500"
+                className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 hover:border-blue-400/50 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-500"
               >
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center text-white">
                     {item.icon}
                   </div>
-                  <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest">{item.label}</p>
+                  <p className="text-[10px] font-black text-gray-500 dark:text-gray-400 uppercase tracking-widest">{item.label}</p>
                 </div>
-                <p className="text-lg font-bold text-gray-900 mb-1">{item.value}</p>
-                <p className="text-gray-500 text-sm">{item.sub}</p>
+                <p className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">{item.value}</p>
+                <p className="text-gray-500 dark:text-gray-400 text-sm">{item.sub}</p>
               </Motion.div>
             ))}
           </div>
@@ -288,7 +286,7 @@ const About = () => {
       </section>
 
       {/* TEAM */}
-      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-12 px-6 border-t border-gray-100 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 py-12 px-6 border-t border-gray-100 dark:border-gray-800 font-['Poppins']">
         <SectionBackdrop />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
@@ -298,13 +296,13 @@ const About = () => {
             <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight">
               The People Behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">The Magic</span>
             </h2>
-            <p className="text-gray-500 mt-4 max-w-xl mx-auto">
+            <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-xl mx-auto">
               A senior team of developers, designers and marketers obsessed with your growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {teamMembers.slice(0, 2).map((member, i) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {teamMembers.map((member, i) => (
               <Motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
@@ -312,12 +310,12 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="group relative rounded-[2.5rem] overflow-hidden border border-gray-200 bg-white hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-500"
+                className="group relative rounded-[2.5rem] overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-600/10 transition-all duration-500"
               >
                 <Link to={`/team/${member.id}`}>
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={i === 0 ? aboutImage : about2Image}
+                      src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                     />
@@ -329,9 +327,9 @@ const About = () => {
                     </div>
                   </div>
                   <div className="p-7">
-                    <h4 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h4>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1 group-hover:text-blue-600 transition-colors">{member.name}</h4>
                     <p className="text-[11px] font-black uppercase tracking-widest text-blue-600 mb-3">{member.role}</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">{member.shortBio}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{member.shortBio}</p>
                   </div>
                 </Link>
               </Motion.div>
@@ -356,7 +354,7 @@ const About = () => {
           </p>
           <a
             href="/contact"
-            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-12 py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-6 sm:px-12 py-5 sm:py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
           >
             Get In Touch
             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

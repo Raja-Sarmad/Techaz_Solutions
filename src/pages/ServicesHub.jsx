@@ -55,7 +55,7 @@ const ServicesHub = () => {
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="relative pt-40 pb-24 px-6 overflow-hidden bg-gradient-to-b from-slate-50 via-blue-50/40 to-white text-gray-900 font-['Poppins']">
+      <section className="relative pt-40 pb-24 px-6 overflow-hidden bg-gradient-to-b from-slate-50 via-blue-50/40 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 font-['Poppins']">
         <SectionBackdrop />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto">
@@ -71,7 +71,7 @@ const ServicesHub = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black mt-8 leading-tight tracking-tighter"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mt-8 leading-tight tracking-tighter"
             >
               Future-Proof{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
@@ -84,7 +84,7 @@ const ServicesHub = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.25 }}
-              className="text-gray-600 text-lg md:text-xl mt-6 font-medium"
+              className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mt-6 font-medium"
             >
               {totalServices}+ services engineered for the Caribbean market — from marketing
               engines to full software systems. Explore each one below.
@@ -105,7 +105,7 @@ const ServicesHub = () => {
               </Link>
               <a
                 href="#services"
-                className="inline-flex items-center gap-3 bg-white border border-gray-200 hover:border-blue-400/50 text-gray-900 px-9 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:border-blue-400/50 text-gray-900 dark:text-gray-100 px-9 py-4 rounded-full font-black text-xs uppercase tracking-widest transition-all hover:-translate-y-0.5"
               >
                 Explore Services
                 <ArrowUpRight size={16} className="rotate-90" />
@@ -116,7 +116,7 @@ const ServicesHub = () => {
       </section>
 
       {/* Categories */}
-      <section id="services" className="relative py-20 px-6 bg-white text-gray-900 font-['Poppins'] scroll-mt-32">
+      <section id="services" className="relative py-20 px-6 bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-['Poppins'] scroll-mt-32">
         <div className="max-w-7xl mx-auto relative z-10">
           {SERVICE_CATEGORIES.map((cat, catIndex) => {
             const CatIcon = CATEGORY_ICONS[cat.key] || Layers;
@@ -132,19 +132,19 @@ const ServicesHub = () => {
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-3 flex-wrap">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 dark:text-gray-500">
                         Category {String(catIndex + 1).padStart(2, '0')}
                       </span>
                       <span className={`px-2.5 py-1 rounded-full ${styles.chip} text-[10px] font-black uppercase tracking-widest`}>
                         {items.length} services
                       </span>
                     </div>
-                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 mt-1">
+                    <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-100 mt-1">
                       {cat.label}
                     </h2>
                   </div>
                   <div className="hidden md:flex items-center gap-3 flex-1 ml-4">
-                    <div className="h-px flex-grow bg-gradient-to-r from-gray-200 to-transparent" />
+                    <div className="h-px flex-grow bg-gradient-to-r from-gray-200 dark:from-gray-700 to-transparent" />
                   </div>
                 </Motion.div>
 
@@ -160,15 +160,15 @@ const ServicesHub = () => {
                         transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
                         viewport={{ once: true }}
                         whileHover={{ y: -10 }}
-                        className="group relative bg-white p-8 rounded-[2rem] border border-gray-200 shadow-xl shadow-blue-600/5 flex flex-col items-start transition-all duration-300 hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-1"
+                        className="group relative bg-white dark:bg-gray-900 p-8 rounded-[2rem] border border-gray-200 dark:border-gray-700 shadow-xl shadow-blue-600/5 flex flex-col items-start transition-all duration-300 hover:border-blue-400/50 hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-1"
                       >
                         <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${styles.grad} shadow-lg shadow-blue-600/10 flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-all duration-300`}>
                           <Icon size={22} />
                         </div>
-                        <h3 className="text-lg font-bold mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">
+                        <h3 className="text-lg font-bold mb-3 text-gray-900 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
                           {service.name}
                         </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
+                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 flex-grow">
                           {service.short}
                         </p>
                         <Link
@@ -212,7 +212,7 @@ const ServicesHub = () => {
             </p>
             <Link
               to="/contact"
-              className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-12 py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
+              className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-6 sm:px-12 py-5 sm:py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
             >
               Let's Talk
               <span className="flex items-center justify-center">

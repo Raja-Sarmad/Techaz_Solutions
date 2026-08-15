@@ -30,7 +30,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="Faq" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white overflow-hidden font-['Poppins'] text-gray-900">
+    <section id="Faq" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100">
       <SectionBackdrop />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -40,7 +40,7 @@ const FAQ = () => {
           <div className="inline-flex items-center px-4 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 rounded-full text-[10px] font-black tracking-widest uppercase">
             Frequently Asked Questions
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 tracking-tight leading-tight">
             Your Questions <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Answered.</span>
           </h2>
         </div>
@@ -50,8 +50,8 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index} 
-              className={`bg-white rounded-2xl transition-all duration-300 border shadow-lg shadow-blue-600/5 ${
-                openIndex === index ? 'border-blue-500/40 shadow-2xl shadow-blue-600/10' : 'border-gray-200'
+              className={`bg-white dark:bg-gray-900 rounded-2xl transition-all duration-300 border shadow-lg shadow-blue-600/5 ${
+                openIndex === index ? 'border-blue-500/40 shadow-2xl shadow-blue-600/10' : 'border-gray-200 dark:border-gray-700'
               }`}
             >
               {/* Question Part */}
@@ -60,11 +60,11 @@ const FAQ = () => {
                 className="w-full flex items-center justify-between p-6 md:p-8 text-left focus:outline-none"
               >
                 <span className={`text-lg font-bold transition-colors ${
-                  openIndex === index ? 'text-blue-600' : 'text-gray-800 hover:text-blue-600'
+                  openIndex === index ? 'text-blue-600' : 'text-gray-800 dark:text-gray-200 hover:text-blue-600'
                 }`}>
                   {faq.question}
                 </span>
-                <div className={`p-1 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-blue-600' : 'text-gray-500'}`}>
+                <div className={`p-1 transition-transform duration-300 ${openIndex === index ? 'rotate-180 text-blue-600' : 'text-gray-500 dark:text-gray-400'}`}>
                    <ChevronDown size={22} />
                 </div>
               </button>
@@ -79,8 +79,8 @@ const FAQ = () => {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 md:px-8 pb-8 text-gray-600 leading-relaxed font-medium">
-                      <div className="h-[1px] bg-gray-100 w-full mb-6"></div>
+                    <div className="px-6 md:px-8 pb-8 text-gray-600 dark:text-gray-300 leading-relaxed font-medium">
+                      <div className="h-[1px] bg-gray-100 dark:bg-gray-800 w-full mb-6"></div>
                       {faq.answer}
                     </div>
                   </motion.div>

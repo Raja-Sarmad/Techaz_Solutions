@@ -4,7 +4,7 @@ const SectionBackdrop = ({
   className = 'absolute inset-0 z-0 pointer-events-none overflow-hidden',
   blobs = ['bg-blue-400/20', 'bg-violet-400/20', 'bg-cyan-400/15'],
   dots = true,
-  dotOpacity = 'opacity-30',
+  dotOpacity = 'opacity-30 dark:opacity-15',
 }) => {
   const positions = [
     '-top-24 -left-24 w-96 h-96 rounded-full blur-[120px] animate-pulse',

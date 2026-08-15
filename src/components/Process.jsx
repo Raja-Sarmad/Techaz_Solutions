@@ -31,7 +31,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 relative overflow-hidden font-['Poppins']">
+    <section className="py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-900 relative overflow-hidden font-['Poppins']">
       <SectionBackdrop />
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -40,7 +40,7 @@ const Process = () => {
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
             Work Process
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-8 text-gray-900 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold mt-8 text-gray-900 dark:text-gray-100 tracking-tight">
             How We Get Things Done
           </h2>
         </div>
@@ -51,9 +51,9 @@ const Process = () => {
           {/* Connecting Arrows (Desktop Only) - Color adjusted for dark theme */}
           <div className="hidden lg:block absolute top-16 left-0 w-full pointer-events-none">
             <div className="flex justify-around items-center px-32">
-               <ChevronRight className="text-gray-200 w-10 h-10 ml-10" strokeWidth={1} />
-               <ChevronRight className="text-gray-200 w-10 h-10 ml-10" strokeWidth={1} />
-               <ChevronRight className="text-gray-200 w-10 h-10 ml-10" strokeWidth={1} />
+               <ChevronRight className="text-gray-200 dark:text-gray-800 w-10 h-10 ml-10" strokeWidth={1} />
+               <ChevronRight className="text-gray-200 dark:text-gray-800 w-10 h-10 ml-10" strokeWidth={1} />
+               <ChevronRight className="text-gray-200 dark:text-gray-800 w-10 h-10 ml-10" strokeWidth={1} />
             </div>
           </div>
 
@@ -63,25 +63,25 @@ const Process = () => {
               {/* Concentric Circles & Icon */}
               <div className="relative mb-8">
                 {/* Outer Ring */}
-                <div className="w-32 h-32 rounded-full border border-blue-100 bg-gradient-to-br from-blue-50 to-violet-50 flex items-center justify-center p-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 shadow-inner">
+                <div className="w-32 h-32 rounded-full border border-blue-100 bg-gradient-to-br from-blue-50 to-violet-50 dark:border-blue-900 dark:from-blue-950/40 dark:to-violet-950/40 flex items-center justify-center p-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 shadow-inner">
                   {/* Inner Ring */}
-                  <div className="w-full h-full rounded-full border border-blue-100 bg-white flex items-center justify-center shadow-sm group-hover:border-blue-500/50">
+                  <div className="w-full h-full rounded-full border border-blue-100 bg-white dark:border-blue-900 dark:bg-gray-900 flex items-center justify-center shadow-sm group-hover:border-blue-500/50">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Number Badge (Top Right) */}
-                <div className="absolute top-0 right-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg border-4 border-white z-10 transition-transform group-hover:rotate-[360deg] duration-700">
+                <div className="absolute top-0 right-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg border-4 border-white dark:border-gray-900 z-10 transition-transform group-hover:rotate-[360deg] duration-700">
                   {step.id}
                 </div>
               </div>
 
               {/* Text Content */}
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 transition-colors">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed max-w-[250px] mx-auto font-medium opacity-80">
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed max-w-[250px] mx-auto font-medium opacity-80">
                   {step.description}
                 </p>
               </div>

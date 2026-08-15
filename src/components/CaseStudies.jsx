@@ -85,7 +85,7 @@ const CaseStudies = () => {
   }, [index]);
 
   return (
-    <section id="CaseStudies" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white overflow-hidden font-['Poppins'] text-gray-900">
+    <section id="CaseStudies" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100">
       <SectionBackdrop />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -98,13 +98,13 @@ const CaseStudies = () => {
           <h2 className="text-3xl md:text-4xl font-bold mt-6 tracking-tight leading-tight">
             Our Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Success Stories.</span>
           </h2>
-          <p className="text-gray-600 mt-4 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 mt-4 text-lg max-w-2xl mx-auto">
             Explore our portfolio of high-impact software solutions engineered for industry leaders across the Caribbean and beyond.
           </p>
         </div>
 
         {/* STATS STRIP */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-10 py-10 border-y border-gray-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-10 py-10 border-y border-gray-200 dark:border-gray-700">
           {[
             { icon: <TrendingUp size={20} />, val: '150+', lbl: 'Projects Delivered' },
             { icon: <Zap size={20} />, val: '8+', lbl: 'Years Experience' },
@@ -123,15 +123,15 @@ const CaseStudies = () => {
                 {s.icon}
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-black text-gray-900">{s.val}</p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{s.lbl}</p>
+                <p className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-100">{s.val}</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">{s.lbl}</p>
               </div>
             </Motion.div>
           ))}
         </div>
 
         {/* SLIDER CONTAINER */}
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-gray-200 bg-white backdrop-blur-sm shadow-xl shadow-slate-200/60">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 backdrop-blur-sm shadow-xl shadow-slate-200/60 dark:shadow-none">
           <Motion.div
             className="flex"
             animate={{ x: `-${index * 100}%` }}
@@ -141,7 +141,7 @@ const CaseStudies = () => {
             {extended.map((item, i) => (
               <div key={i} className="min-w-full lg:p-12 p-6 flex flex-col lg:flex-row gap-10 items-center">
                 {/* Image Section */}
-                <div className="w-full lg:w-3/5 overflow-hidden rounded-3xl border border-gray-200 shadow-2xl">
+                <div className="w-full lg:w-3/5 overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 shadow-2xl">
                   <img
                     src={item.image}
                     className="w-full h-[300px] md:h-[450px] object-cover hover:scale-110 transition-transform duration-1000"
@@ -153,28 +153,28 @@ const CaseStudies = () => {
                 <div className="w-full lg:w-2/5 space-y-6 text-left">
                   <div className="flex items-center gap-4">
                     <p className="text-blue-600 font-black text-2xl tracking-tighter">#{item.id}</p>
-                    <div className="h-[1px] flex-grow bg-gray-100"></div>
+                    <div className="h-[1px] flex-grow bg-gray-100 dark:bg-gray-800"></div>
                   </div>
                   <h3 className="text-3xl md:text-4xl font-bold leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                     {item.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {item.tags.map((t) => (
-                      <span key={t} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-gray-700">
+                      <span key={t} className="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200">
                         {t}
                       </span>
                     ))}
                   </div>
-                  <div className="bg-gray-50 border border-gray-200 rounded-2xl p-5 flex items-center gap-4">
+                  <div className="bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-2xl p-5 flex items-center gap-4">
                     <span className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">
                       {item.result}
                     </span>
-                    <span className="text-gray-500 text-sm font-semibold uppercase tracking-wider">{item.resultLabel}</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-sm font-semibold uppercase tracking-wider">{item.resultLabel}</span>
                   </div>
-                  <button className="flex items-center gap-2 text-gray-900 font-bold group border-b-2 border-blue-500 pb-1 hover:text-blue-600 transition-all">
+                  <button className="flex items-center gap-2 text-gray-900 dark:text-gray-100 font-bold group border-b-2 border-blue-500 pb-1 hover:text-blue-600 transition-all">
                     Explore Case Study
                     <ExternalLink size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </button>
@@ -183,10 +183,10 @@ const CaseStudies = () => {
             ))}
           </Motion.div>
 
-          <button onClick={prev} aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
+          <button onClick={prev} aria-label="Previous" className="absolute left-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 dark:border-gray-700 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
             <ArrowLeft size={20} />
           </button>
-          <button onClick={next} aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
+          <button onClick={next} aria-label="Next" className="absolute right-4 top-1/2 -translate-y-1/2 p-3 md:p-4 bg-transparent border border-gray-200 dark:border-gray-700 rounded-full shadow-lg hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-300 z-10">
             <ArrowRight size={20} />
           </button>
         </div>
@@ -205,13 +205,13 @@ const CaseStudies = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:border-blue-400/30 transition-all duration-500"
+              className="group bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 hover:border-blue-400/30 transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-all duration-300">
                 {c.icon}
               </div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">{c.desc}</p>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{c.title}</h4>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{c.desc}</p>
             </Motion.div>
           ))}
         </div>

@@ -96,7 +96,7 @@ const TiltCard = ({ project, index, onClick, large }) => {
         <span className="text-[10px] font-bold tracking-widest uppercase px-3.5 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white/70">
           {project.category}
         </span>
-        <span className="text-[10px] font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-blue-600/90 text-white opacity-0 -translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 backdrop-blur-sm">
+        <span className="text-[10px] font-bold tracking-wider uppercase px-3.5 py-1.5 rounded-full bg-blue-600/90 text-white opacity-100 sm:opacity-0 sm:-translate-y-2 transition-all duration-300 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 backdrop-blur-sm">
           {project.stats}
         </span>
       </div>
@@ -187,7 +187,7 @@ const Projects = () => {
   const filtered = filter === 'All' ? ALL_PROJECTS : ALL_PROJECTS.filter(p => p.category === filter);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
+    <section className="relative min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
       <SectionBackdrop dotOpacity="opacity-25" />
      
       <div className="relative z-10 max-w-7xl mx-auto">
@@ -199,20 +199,20 @@ const Projects = () => {
             Our Masterpieces
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
             Selected <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-cyan-500">Work.</span>
           </h2>
           
-          <p className="max-w-md mx-auto text-gray-500 text-base leading-relaxed mb-10">
+          <p className="max-w-md mx-auto text-gray-500 dark:text-gray-400 text-base leading-relaxed mb-10">
             From AI-driven platforms to mobile apps — built for ambitious teams worldwide.
           </p>
 
-          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-white border border-gray-200 rounded-full backdrop-blur-xl shadow-lg shadow-blue-600/5">
+          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-full backdrop-blur-xl shadow-lg shadow-blue-600/5">
             {FILTERS.map(f => (
               <button
                 key={f}
                 className={`px-5 py-2 rounded-full text-[11px] font-bold tracking-wider transition-all duration-300 ${
-                  filter === f ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 hover:text-gray-900'
+                  filter === f ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20' : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100'
                 }`}
                 onClick={() => setFilter(f)}
               >
@@ -223,7 +223,7 @@ const Projects = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 mb-12 border-y border-gray-200 items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-10 mb-12 border-y border-gray-200 dark:border-gray-700 items-center">
           {[
             ['150+', 'Projects'],
             ['80+', 'Clients'],
@@ -232,8 +232,8 @@ const Projects = () => {
           ].map(([val, lbl], i) => (
             <div key={val} className="text-center relative">
               <span className="block text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{val}</span>
-              <span className="block text-[10px] font-bold tracking-widest uppercase text-gray-500 mt-2">{lbl}</span>
-              {i < 3 && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-gray-200 hidden md:block" />}
+              <span className="block text-[10px] font-bold tracking-widest uppercase text-gray-500 dark:text-gray-400 mt-2">{lbl}</span>
+              {i < 3 && <div className="absolute right-0 top-1/2 -translate-y-1/2 w-px h-10 bg-gray-200 dark:bg-gray-700 hidden md:block" />}
             </div>
           ))}
         </div>
@@ -259,7 +259,7 @@ const Projects = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 h-14 rounded-2xl bg-white border border-gray-200 text-gray-900 font-bold text-sm tracking-wide hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:border-blue-600 shadow-lg shadow-blue-600/5 transition-all group"
+            className="px-10 h-14 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 font-bold text-sm tracking-wide hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 hover:text-white hover:border-blue-600 shadow-lg shadow-blue-600/5 transition-all group"
           >
             Explore All Projects 
             <ArrowUpRight size={18} className="inline-block ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -267,7 +267,7 @@ const Projects = () => {
         </div>
 
         {/* Trust Footer */}
-        <div className="mt-12 pt-12 border-t border-gray-200 flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:opacity-70 transition-all duration-500">
+        <div className="mt-12 pt-12 border-t border-gray-200 dark:border-gray-700 flex flex-wrap justify-center items-center gap-12 grayscale opacity-40 hover:opacity-70 transition-all duration-500">
           {[
             { icon: Globe, lbl: 'Global Delivery' },
             { icon: Cpu, lbl: 'AI Integrated' },

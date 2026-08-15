@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowUpRight, ChevronDown, Sun, Moon } from 'lucide-react';
 import { services, SERVICE_CATEGORIES } from '../data/services';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
@@ -33,15 +35,15 @@ const Navbar = () => {
       {/* Navbar Container */}
       <div
         className={`max-w-7xl mx-auto flex items-center justify-center transition-all duration-500 pointer-events-auto
-          bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-gray-100 rounded-full
-          ${isScrolled ? 'py-2 px-4' : 'py-4 px-8'}`}
+          bg-white dark:bg-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gray-100 dark:border-gray-800 rounded-full
+          ${isScrolled ? 'py-2 px-4' : 'py-4 px-5 sm:px-8'}`}
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group pl-2 -translate-y-2 mr-auto">
+        <Link to="/" className="flex items-center gap-2 group pl-2 mr-auto">
           <img
             src="/gallery/company-logo.png"
             alt="Company Logo"
-            className="h-10 w-auto object-contain scale-[6.4] origin-left transition-transform duration-300 group-hover:scale-[6.6]"
+            className="h-[110px] sm:h-[135px] lg:h-[150px] w-auto object-contain dark:brightness-0 dark:invert transition-transform duration-300 group-hover:scale-105 -my-8 sm:-my-10 lg:-my-12"
           />
         </Link>
 
@@ -58,7 +60,7 @@ const Navbar = () => {
                 <Link
                   to={link.href}
                   className={`text-sm font-bold hover:text-blue-600 transition-colors relative group py-1 flex items-center gap-1 ${
-                    isActive(link.href) ? 'text-blue-600' : 'text-gray-900'
+                    isActive(link.href) ? 'text-blue-600' : 'text-gray-900 dark:text-gray-100'
                   }`}
                 >
                   {link.name}
@@ -72,7 +74,7 @@ const Navbar = () => {
                     servicesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="w-[760px] max-w-[80vw] bg-white border border-gray-100 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.2)] overflow-hidden">
+                  <div className="w-[760px] max-w-[80vw] bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.2)] overflow-hidden">
                     <div className="grid grid-cols-2 gap-x-8 gap-y-6 p-8 max-h-[62vh] overflow-y-auto">
                       {SERVICE_CATEGORIES.map((cat) => {
                         const items = services.filter((s) => s.category === cat.key);
@@ -86,7 +88,7 @@ const Navbar = () => {
                                 <li key={s.slug}>
                                   <Link
                                     to={`/services/${s.slug}`}
-                                    className="text-sm font-medium text-gray-600 hover:text-blue-600 hover:translate-x-1 transition-all inline-block"
+                                    className="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 hover:translate-x-1 transition-all inline-block"
                                   >
                                     {s.name}
                                   </Link>
@@ -97,7 +99,7 @@ const Navbar = () => {
                         );
                       })}
                     </div>
-                    <div className="px-8 pb-6 pt-2 border-t border-gray-100">
+                    <div className="px-8 pb-6 pt-2 border-t border-gray-100 dark:border-gray-800">
                       <Link
                         to="/services"
                         className="block text-center bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-full font-black text-[10px] uppercase tracking-widest transition-all"
@@ -113,7 +115,7 @@ const Navbar = () => {
                 key={link.name}
                 to={link.href}
                 className={`text-sm font-bold hover:text-blue-600 transition-colors relative group py-1 ${
-                  isActive(link.href) ? 'text-blue-600' : 'text-gray-900'
+                  isActive(link.href) ? 'text-blue-600' : 'text-gray-900 dark:text-gray-100'
                 }`}
               >
                 {link.name}
@@ -124,7 +126,33 @@ const Navbar = () => {
         </div>
 
         {/* Action Button */}
-        <div className="flex items-center gap-2 ml-6">
+        <div className="flex items-center gap-2 ml-4 sm:ml-6">
+          <button
+            onClick={toggleTheme}
+            role="switch"
+            aria-checked={theme === 'dark'}
+            aria-label="Toggle light and dark theme"
+            className="relative w-14 h-8 rounded-full transition-colors duration-300 bg-gray-200 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 flex items-center cursor-pointer shrink-0"
+          >
+            <Sun
+              size={12}
+              className={`absolute left-2 transition-colors duration-300 ${
+                theme === 'dark' ? 'text-amber-400' : 'text-gray-400'
+              }`}
+            />
+            <Moon
+              size={12}
+              className={`absolute right-2 transition-colors duration-300 ${
+                theme === 'dark' ? 'text-gray-600' : 'text-indigo-500'
+              }`}
+            />
+            <span
+              className={`absolute top-0.5 left-0.5 w-7 h-7 rounded-full bg-white dark:bg-gray-600 border border-gray-200 dark:border-gray-600 transition-transform duration-300 ${
+                theme === 'dark' ? 'translate-x-6' : 'translate-x-0'
+              }`}
+            />
+          </button>
+
           <Link
             to="/contact"
             className="hidden sm:flex items-center gap-3 bg-blue-600 text-white px-7 py-3 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
@@ -135,7 +163,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-black p-2">
+          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-black dark:text-white p-2">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -147,14 +175,14 @@ const Navbar = () => {
           isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
         }`}
       >
-        <div className="bg-white border border-gray-100 rounded-[2.5rem] p-8 shadow-[0_30px_60px_rgba(0,0,0,0.2)] max-h-[70vh] overflow-y-auto">
-          <div className="grid grid-cols-2 gap-6">
+        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-[2.5rem] p-8 shadow-[0_30px_60px_rgba(0,0,0,0.2)] max-h-[70vh] overflow-y-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {navLinks.map((link) =>
               link.dropdown ? (
                 <div key={link.name} className="col-span-2">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="flex items-center justify-between w-full text-lg font-bold text-gray-900 hover:text-blue-600"
+                    className="flex items-center justify-between w-full text-lg font-bold text-gray-900 dark:text-gray-100 hover:text-blue-600"
                   >
                     {link.name}
                     <ChevronDown size={18} className={`transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
@@ -174,7 +202,7 @@ const Navbar = () => {
                               <Link
                                 key={s.slug}
                                 to={`/services/${s.slug}`}
-                                className="text-sm font-medium text-gray-500 hover:text-blue-600"
+                                className="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-blue-600"
                                 onClick={() => setIsOpen(false)}
                               >
                                 {s.name}
@@ -190,7 +218,7 @@ const Navbar = () => {
                   key={link.name}
                   to={link.href}
                   className={`text-lg font-bold hover:text-blue-600 ${
-                    isActive(link.href) ? 'text-blue-600' : 'text-gray-900'
+                    isActive(link.href) ? 'text-blue-600' : 'text-gray-900 dark:text-gray-100'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

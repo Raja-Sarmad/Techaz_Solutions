@@ -125,7 +125,7 @@ const CaseStudiesPage = () => {
   return (
     <PageLayout>
       {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white text-gray-900 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
+      <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
         <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
@@ -149,7 +149,7 @@ const CaseStudiesPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-black tracking-tighter leading-[1.02] mt-8"
+            className="text-3xl md:text-6xl font-black tracking-tighter leading-[1.02] mt-8"
           >
             Real Projects. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">Real Results.</span>
           </Motion.h1>
@@ -158,13 +158,13 @@ const CaseStudiesPage = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-gray-600 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
+            className="text-gray-600 dark:text-gray-300 text-lg md:text-xl mt-6 max-w-2xl mx-auto font-medium"
           >
             A peek inside the systems we've engineered for clients across the Caribbean and beyond — and the numbers that prove they work.
           </Motion.p>
         </div>
 
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500">
           <span className="text-[9px] font-bold uppercase tracking-[0.3em]">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-gray-300 flex justify-center pt-2">
             <div className="w-1 h-2 rounded-full bg-blue-500 animate-bounce" />
@@ -173,8 +173,8 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* STATS BAND */}
-      <section className="relative bg-white py-12 px-6 border-y border-gray-100 font-['Poppins']">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      <section className="relative bg-white dark:bg-gray-950 py-12 px-6 border-y border-gray-100 dark:border-gray-800 font-['Poppins']">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {[
             { icon: <TrendingUp size={20} />, val: 150, suffix: '+', lbl: 'Projects Delivered' },
             { icon: <Users size={20} />, val: 80, suffix: '+', lbl: 'Happy Clients' },
@@ -193,11 +193,11 @@ const CaseStudiesPage = () => {
                 {s.icon}
               </div>
               <div>
-                <p className="text-2xl md:text-3xl font-black text-gray-900">
+                <p className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-100">
                   <Counter value={s.val} />
                   {s.suffix}
                 </p>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500">{s.lbl}</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">{s.lbl}</p>
               </div>
             </Motion.div>
           ))}
@@ -205,18 +205,18 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* FILTER + GRID */}
-      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 py-16 px-6 font-['Poppins']">
+      <section className="relative bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 py-16 px-6 font-['Poppins']">
         <SectionBackdrop />
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100">
                 Work That <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Speaks For Itself</span>
               </h2>
-              <p className="text-gray-600 mt-3 text-lg">Filter by industry and see how we've moved the needle.</p>
+              <p className="text-gray-600 dark:text-gray-300 mt-3 text-lg">Filter by industry and see how we've moved the needle.</p>
             </div>
 
-            <div className="flex items-center gap-2 flex-wrap justify-center bg-white border border-gray-200 p-2 rounded-2xl shadow-lg shadow-blue-600/5">
+            <div className="flex items-center gap-2 flex-wrap justify-center bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-2 rounded-2xl shadow-lg shadow-blue-600/5">
               <Filter size={16} className="text-blue-600 mx-1" />
               {industries.map((ind) => (
                 <button
@@ -225,7 +225,7 @@ const CaseStudiesPage = () => {
                   className={`px-4 py-2 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${
                     filter === ind
                       ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-600/20'
-                      : 'text-gray-500 hover:text-blue-600 hover:bg-blue-50'
+                      : 'text-gray-500 dark:text-gray-400 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-gray-800'
                   }`}
                 >
                   {ind}
@@ -242,7 +242,7 @@ const CaseStudiesPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-[2rem] border border-gray-200 bg-white shadow-xl shadow-blue-600/5 hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-2 transition-all duration-500"
+                className="group relative overflow-hidden rounded-[2rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-blue-600/5 hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-2 transition-all duration-500"
               >
                   <div className="relative h-56 overflow-hidden">
                     <img
@@ -262,23 +262,23 @@ const CaseStudiesPage = () => {
                   </div>
 
                   <div className="p-7">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">{c.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-5">{c.description}</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-blue-600 transition-colors">{c.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">{c.description}</p>
                     <div className="flex flex-wrap gap-2 mb-6">
                       {c.tags.slice(0, 3).map((t) => (
-                        <span key={t} className="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-gray-600">
+                        <span key={t} className="text-[9px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300">
                           {t}
                         </span>
                       ))}
                     </div>
-                    <div className="grid grid-cols-2 gap-3 border-t border-gray-100 pt-5">
+                    <div className="grid grid-cols-2 gap-3 border-t border-gray-100 dark:border-gray-800 pt-5">
                       <div>
                         <p className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{c.result}</p>
-                        <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">{c.resultLabel}</p>
+                        <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">{c.resultLabel}</p>
                       </div>
                       <div>
-                        <p className="text-2xl font-black text-gray-900">{c.result2}</p>
-                        <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400">{c.result2Label}</p>
+                        <p className="text-2xl font-black text-gray-900 dark:text-gray-100">{c.result2}</p>
+                        <p className="text-[9px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">{c.result2Label}</p>
                       </div>
                     </div>
                     {c.website && (
@@ -302,7 +302,7 @@ const CaseStudiesPage = () => {
       </section>
 
       {/* INDUSTRY COVERAGE */}
-      <section className="relative bg-white py-16 px-6 border-t border-gray-100 font-['Poppins']">
+      <section className="relative bg-white dark:bg-gray-950 py-16 px-6 border-t border-gray-100 dark:border-gray-800 font-['Poppins']">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { title: 'Automotive', desc: 'Car dealer platforms, rental systems and lead-generation tools built for the region.', icon: <Layers size={20} /> },
@@ -316,13 +316,13 @@ const CaseStudiesPage = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-gray-50 border border-gray-200 rounded-3xl p-8 hover:border-blue-400/30 transition-all duration-500"
+              className="group bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-3xl p-8 hover:border-blue-400/30 transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 shadow-lg shadow-blue-600/20 flex items-center justify-center text-white mb-5 group-hover:scale-110 transition-all duration-300">
                 {c.icon}
               </div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">{c.title}</h4>
-              <p className="text-gray-500 text-sm leading-relaxed">{c.desc}</p>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">{c.title}</h4>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{c.desc}</p>
             </Motion.div>
           ))}
         </div>
@@ -341,7 +341,7 @@ const CaseStudiesPage = () => {
           </p>
           <Link
             to="/contact"
-            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-12 py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
+            className="group relative inline-flex items-center gap-4 bg-white text-blue-700 hover:bg-blue-50 px-6 sm:px-12 py-5 sm:py-6 rounded-full font-black text-xs uppercase tracking-widest transition-all shadow-2xl shadow-blue-900/30 hover:-translate-y-0.5"
           >
             Start Your Project
             <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

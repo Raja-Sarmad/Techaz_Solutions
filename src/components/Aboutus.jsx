@@ -61,9 +61,11 @@ const stats = [
   { value: "6+", label: "Years of Excellence" },
 ];
 
+const maxValue = Math.max(...chartData.map((d) => d.value));
+
 const AboutUs = () => {
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden bg-white font-['Poppins']">
+    <section className="relative py-16 md:py-20 overflow-hidden bg-white dark:bg-gray-950 font-['Poppins']">
       {/* Decorative background */}
       <div className="absolute -top-32 -left-24 w-[420px] h-[420px] bg-gradient-to-br from-[#3B5BFF]/15 to-[#6C4DFF]/15 blur-[120px] rounded-full" />
       <div className="absolute -bottom-32 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-[#6C4DFF]/15 to-[#3B5BFF]/15 blur-[120px] rounded-full" />
@@ -85,10 +87,10 @@ const AboutUs = () => {
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 lg:items-stretch">
 
           {/* ============ LEFT: Dashboard Visual ============ */}
-          <div className="lg:col-span-6 relative">
+          <div className="lg:col-span-6 flex flex-col relative">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -103,7 +105,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative bg-white rounded-[2rem] border border-gray-100 shadow-[0_45px_90px_-25px_rgba(59,91,255,0.35)] p-6 md:p-7"
+              className="relative flex-1 flex flex-col bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-[0_45px_90px_-25px_rgba(59,91,255,0.35)] dark:shadow-[0_45px_90px_-25px_rgba(0,0,0,0.6)] p-6 md:p-7"
             >
               {/* Window Header */}
               <div className="flex items-center justify-between mb-6">
@@ -112,7 +114,7 @@ const AboutUs = () => {
                   <span className="w-3 h-3 rounded-full bg-yellow-400" />
                   <span className="w-3 h-3 rounded-full bg-green-400" />
                 </div>
-                <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400 bg-gray-50 border border-gray-100 rounded-lg px-3 py-1 hidden sm:inline-block">
+                <span className="text-[10px] font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg px-3 py-1 hidden sm:inline-block">
                   techaz.solutions/dashboard
                 </span>
               </div>
@@ -130,41 +132,72 @@ const AboutUs = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.15 + i * 0.1 }}
-                    className="rounded-xl border border-gray-100 bg-gradient-to-b from-gray-50 to-white p-3"
+                    className="rounded-xl border border-gray-100 dark:border-gray-700 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800/60 dark:to-gray-800 p-3"
                   >
                     <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] text-white flex items-center justify-center mb-2">
                       {s.icon}
                     </div>
-                    <p className="text-lg font-extrabold text-gray-900 leading-none">{s.value}</p>
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">{s.label}</p>
+                    <p className="text-lg font-extrabold text-gray-900 dark:text-gray-100 leading-none">{s.value}</p>
+                    <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">{s.label}</p>
                   </motion.div>
                 ))}
               </div>
 
               {/* Performance Chart */}
-              <div className="rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-4 md:p-5 mb-6">
+              <div className="flex-1 flex flex-col rounded-2xl border border-gray-100 dark:border-gray-700 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800/40 dark:to-gray-800/60 p-4 md:p-5 mb-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <p className="text-xs font-bold text-gray-900">Performance Overview</p>
-                    <p className="text-[10px] text-gray-400 font-medium">Monthly delivery growth</p>
+                    <p className="text-xs font-bold text-gray-900 dark:text-gray-100">Performance Overview</p>
+                    <p className="text-[10px] text-gray-400 dark:text-gray-500 font-medium">Monthly delivery growth</p>
                   </div>
                   <span className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 rounded-full px-2.5 py-1">
                     <TrendingUp size={12} /> +24%
                   </span>
                 </div>
-                <div className="flex items-end justify-between gap-2 h-28 md:h-32">
-                  {chartData.map((item, i) => (
-                    <div key={i} className="flex-1 flex flex-col items-center gap-1.5 group">
-                      <motion.div
-                        initial={{ height: 0 }}
-                        whileInView={{ height: `${item.value}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.9, delay: 0.2 + i * 0.08, ease: "easeOut" }}
-                        className="w-full max-w-[26px] rounded-lg bg-gradient-to-t from-[#3B5BFF] to-[#6C4DFF] group-hover:from-[#6C4DFF] group-hover:to-[#3B5BFF] transition-all duration-300"
-                      />
-                      <span className="text-[9px] font-bold text-gray-400">{item.label}</span>
-                    </div>
-                  ))}
+
+                <div className="relative flex-1 flex items-end justify-between gap-2 min-h-[170px]">
+                  {/* Gridlines */}
+                  <div className="absolute inset-0 bottom-7 flex flex-col justify-between pointer-events-none">
+                    {[0, 1, 2, 3].map((g) => (
+                      <div key={g} className="border-t border-dashed border-gray-200 dark:border-gray-700" />
+                    ))}
+                  </div>
+
+                  {chartData.map((item, i) => {
+                    const barHeight = Math.round((item.value / maxValue) * 120);
+                    const isMax = item.value === maxValue;
+                    return (
+                      <div
+                        key={i}
+                        className="flex-1 h-full flex flex-col items-center justify-end gap-1.5 relative group"
+                      >
+                        {/* Value above bar */}
+                        <span
+                          className={`text-[11px] font-extrabold transition-colors ${
+                            isMax
+                              ? "text-[#6C4DFF]"
+                              : "text-gray-700 dark:text-gray-200 group-hover:text-[#3B5BFF]"
+                          }`}
+                        >
+                          {item.value}
+                        </span>
+                        {/* Bar */}
+                        <motion.div
+                          initial={{ height: 0 }}
+                          whileInView={{ height: barHeight }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.9, delay: 0.2 + i * 0.08, ease: "easeOut" }}
+                          className={`w-full max-w-[30px] rounded-t-lg shadow-sm ${
+                            isMax
+                              ? "bg-gradient-to-t from-[#6C4DFF] to-[#9b7bff]"
+                              : "bg-gradient-to-t from-[#3B5BFF] to-[#6C4DFF]"
+                          } group-hover:shadow-lg group-hover:shadow-[#3B5BFF]/30`}
+                        />
+                        {/* Month label */}
+                        <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400">{item.label}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -173,12 +206,12 @@ const AboutUs = () => {
                 {projects.map((p, i) => (
                   <div key={i}>
                     <div className="flex items-center justify-between mb-1.5">
-                      <p className="text-xs font-bold text-gray-700">{p.name}</p>
+                      <p className="text-xs font-bold text-gray-700 dark:text-gray-200">{p.name}</p>
                       <p className="text-xs font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF]">
                         {p.percent}%
                       </p>
                     </div>
-                    <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
+                    <div className="h-2 rounded-full bg-gray-100 dark:bg-gray-800 overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${p.percent}%` }}
@@ -199,14 +232,14 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
               animate={{ y: [0, -12, 0] }}
-              className="absolute -top-7 -right-3 md:-right-8 bg-white border border-gray-100 shadow-[0_25px_50px_-12px_rgba(59,91,255,0.3)] rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="absolute -top-7 -right-3 md:-right-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(59,91,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
                 <Star className="text-white w-5 h-5 fill-white" />
               </div>
               <div>
-                <p className="text-lg font-extrabold text-gray-900 leading-none">98%</p>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">Client Satisfaction</p>
+                <p className="text-lg font-extrabold text-gray-900 dark:text-gray-100 leading-none">98%</p>
+                <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">Client Satisfaction</p>
               </div>
             </motion.div>
 
@@ -217,14 +250,14 @@ const AboutUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.55 }}
               animate={{ y: [0, 12, 0] }}
-              className="absolute -bottom-7 -left-3 md:-left-8 bg-white border border-gray-100 shadow-[0_25px_50px_-12px_rgba(108,77,255,0.3)] rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="absolute -bottom-7 -left-3 md:-left-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(108,77,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] flex items-center justify-center shadow-lg shadow-[#3B5BFF]/30">
                 <Rocket className="text-white w-5 h-5" />
               </div>
               <div>
-                <p className="text-lg font-extrabold text-gray-900 leading-none">120+</p>
-                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-1">Projects Delivered</p>
+                <p className="text-lg font-extrabold text-gray-900 dark:text-gray-100 leading-none">120+</p>
+                <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mt-1">Projects Delivered</p>
               </div>
             </motion.div>
 
@@ -245,7 +278,7 @@ const AboutUs = () => {
           </div>
 
           {/* ============ RIGHT: Content ============ */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 flex flex-col h-full space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -260,7 +293,7 @@ const AboutUs = () => {
                 Partner with Excellence
               </span>
 
-              <h2 className="text-[1.75rem] md:text-4xl xl:text-[2.5rem] font-extrabold text-gray-900 mt-5 leading-[1.12] tracking-tight">
+              <h2 className="text-[1.75rem] md:text-4xl xl:text-[2.5rem] font-extrabold text-gray-900 dark:text-gray-100 mt-5 leading-[1.12] tracking-tight">
                 Transforming Your Ideas <br />
                 Into{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF]">
@@ -268,7 +301,7 @@ const AboutUs = () => {
                 </span>
               </h2>
 
-              <p className="text-gray-500 mt-5 text-base md:text-lg leading-relaxed font-light">
+              <p className="text-gray-500 dark:text-gray-400 mt-5 text-base md:text-lg leading-relaxed font-light">
                 We are a full-service software house dedicated to helping businesses scale. We
                 combine modern technology and business strategy to create solutions that deliver
                 real results.
@@ -281,14 +314,14 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="grid grid-cols-3 gap-4 rounded-2xl bg-gradient-to-r from-[#3B5BFF]/10 via-[#6C4DFF]/10 to-[#3B5BFF]/10 border border-[#3B5BFF]/10 px-5 py-4"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 rounded-2xl bg-gradient-to-r from-[#3B5BFF]/10 via-[#6C4DFF]/10 to-[#3B5BFF]/10 dark:from-[#3B5BFF]/20 dark:via-[#6C4DFF]/20 dark:to-[#3B5BFF]/20 border border-[#3B5BFF]/10 dark:border-[#3B5BFF]/30 px-5 py-4"
             >
               {stats.map((s, i) => (
-                <div key={i} className="text-center md:text-left">
+                <div key={i} className="text-center sm:text-left">
                   <p className="text-xl md:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#3B5BFF] to-[#6C4DFF] leading-none">
                     {s.value}
                   </p>
-                  <p className="text-[10px] md:text-[11px] font-bold text-gray-500 uppercase tracking-wider mt-1.5">
+                  <p className="text-[10px] md:text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mt-1.5">
                     {s.label}
                   </p>
                 </div>
@@ -304,18 +337,18 @@ const AboutUs = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-white/80 backdrop-blur-sm border border-gray-100 rounded-2xl p-4 hover:border-[#3B5BFF]/30 hover:shadow-xl hover:shadow-[#3B5BFF]/10 hover:-translate-y-1 transition-all duration-500"
+                  className="group bg-white/80 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-100 dark:border-gray-800 rounded-2xl p-4 hover:border-[#3B5BFF]/30 hover:shadow-xl hover:shadow-[#3B5BFF]/10 hover:-translate-y-1 transition-all duration-500"
                 >
                   <div className="w-10 h-10 rounded-full border-2 border-[#3B5BFF]/20 text-[#3B5BFF] flex items-center justify-center mb-2.5 group-hover:border-transparent group-hover:bg-gradient-to-br group-hover:from-[#3B5BFF] group-hover:to-[#6C4DFF] group-hover:text-white transition-all duration-500">
                     {item.icon}
                   </div>
-                  <h4 className="text-sm font-bold text-gray-900 mb-1">{item.title}</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  <h4 className="text-sm font-bold text-gray-900 dark:text-gray-100 mb-1">{item.title}</h4>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
             </div>
 
-            <div className="h-[1px] bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+            <div className="h-[1px] bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
 
             {/* CTA + Contact */}
             <motion.div
@@ -330,13 +363,13 @@ const AboutUs = () => {
                 <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </button>
 
-              <div className="flex items-center gap-4 bg-white/80 backdrop-blur-sm border border-gray-100 shadow-lg shadow-gray-200/60 rounded-2xl px-5 py-3">
+              <div className="flex items-center gap-4 bg-white/80 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-100 dark:border-gray-800 shadow-lg shadow-gray-200/60 dark:shadow-none rounded-2xl px-5 py-3">
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] flex items-center justify-center">
                   <PhoneCall className="text-white h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-bold text-gray-500 uppercase tracking-widest leading-none mb-1 text-nowrap">Direct Line</p>
-                  <p className="text-base font-bold text-gray-900 tracking-tight text-nowrap">+92 300 1234567</p>
+                  <p className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest leading-none mb-1 text-nowrap">Direct Line</p>
+                  <p className="text-base font-bold text-gray-900 dark:text-gray-100 tracking-tight text-nowrap">+92 300 1234567</p>
                 </div>
               </div>
             </motion.div>
