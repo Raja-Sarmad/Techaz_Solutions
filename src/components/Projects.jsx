@@ -72,7 +72,7 @@ const TiltCard = ({ project, index, onClick, large }) => {
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       onClick={() => onClick(project)}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', perspective: 900 }}
+      style={{ rotateX, rotateY, transformStyle: 'preserve-3d', WebkitTransformStyle: 'preserve-3d', perspective: 900, backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

@@ -11,9 +11,9 @@ const FaqsPage = () => {
       {/* HERO */}
       <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
-        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
-        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/20 blur-[120px] rounded-full" />
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/20 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/20 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/15 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
         <div
           className="absolute inset-0 opacity-40 pointer-events-none"
           style={{

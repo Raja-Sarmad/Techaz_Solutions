@@ -142,9 +142,9 @@ const Home = () => {
 
       {/* CTA */}
       <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 text-white py-16 px-6 text-center overflow-hidden">
-        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[100px] rounded-full" />
-        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[100px] rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[80px] rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[80px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 blur-[80px] rounded-full" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase mb-6">
             Let's Build <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200">Something Epic.</span>

@@ -67,8 +67,8 @@ const AboutUs = () => {
   return (
     <section className="relative py-16 md:py-20 overflow-hidden bg-white dark:bg-gray-950 font-['Poppins']">
       {/* Decorative background */}
-      <div className="absolute -top-32 -left-24 w-[420px] h-[420px] bg-gradient-to-br from-[#3B5BFF]/15 to-[#6C4DFF]/15 blur-[120px] rounded-full" />
-      <div className="absolute -bottom-32 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-[#6C4DFF]/15 to-[#3B5BFF]/15 blur-[120px] rounded-full" />
+      <div className="absolute -top-32 -left-24 w-[420px] h-[420px] bg-gradient-to-br from-[#3B5BFF]/12 to-[#6C4DFF]/12 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+      <div className="absolute -bottom-32 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-[#6C4DFF]/12 to-[#3B5BFF]/12 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
       <div className="absolute top-1/2 -translate-y-1/2 -left-16 w-64 h-64 rounded-full border border-[#3B5BFF]/10" />
       <div className="absolute top-24 right-10 w-40 h-40 rounded-full border border-[#6C4DFF]/10" />
       <div
@@ -96,7 +96,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="absolute -inset-8 bg-gradient-to-br from-[#3B5BFF]/20 via-transparent to-[#6C4DFF]/20 blur-3xl rounded-[3rem]"
+              className="absolute -inset-8 bg-gradient-to-br from-[#3B5BFF]/15 via-transparent to-[#6C4DFF]/15 blur-2xl rounded-[3rem]"
             />
 
             {/* Main Dashboard Card */}
@@ -231,8 +231,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              animate={{ y: [0, -12, 0] }}
-              className="absolute -top-7 -right-3 md:-right-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(59,91,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="absolute -top-7 -right-3 md:-right-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(59,91,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3 animate-float"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg shadow-amber-500/30">
                 <Star className="text-white w-5 h-5 fill-white" />
@@ -249,8 +248,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              animate={{ y: [0, 12, 0] }}
-              className="absolute -bottom-7 -left-3 md:-left-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(108,77,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3"
+              className="absolute -bottom-7 -left-3 md:-left-8 bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-[0_25px_50px_-12px_rgba(108,77,255,0.3)] dark:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.6)] rounded-2xl px-4 py-3 flex items-center gap-3 animate-float-delay"
             >
               <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] flex items-center justify-center shadow-lg shadow-[#3B5BFF]/30">
                 <Rocket className="text-white w-5 h-5" />
@@ -267,8 +265,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.7 }}
-              animate={{ y: [0, -10, 0] }}
-              className="absolute top-1/2 -left-4 md:-left-10 hidden md:flex items-center gap-2 bg-gray-900 text-white rounded-full pl-2 pr-4 py-2 shadow-xl shadow-gray-900/20"
+              className="absolute top-1/2 -left-4 md:-left-10 hidden md:flex items-center gap-2 bg-gray-900 text-white rounded-full pl-2 pr-4 py-2 shadow-xl shadow-gray-900/20 animate-float"
             >
               <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#3B5BFF] to-[#6C4DFF] flex items-center justify-center">
                 <Code2 size={14} />

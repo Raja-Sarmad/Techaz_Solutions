@@ -192,9 +192,9 @@ const ServicesHub = () => {
 
       {/* CTA */}
       <section className="relative py-20 px-6 overflow-hidden bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 text-white text-center font-['Poppins']">
-        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[100px] rounded-full" />
-        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[100px] rounded-full" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 blur-[120px] rounded-full animate-pulse" />
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[80px] rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[80px] rounded-full" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 blur-[80px] rounded-full" />
         <div className="relative z-10 max-w-3xl mx-auto">
           <Motion.div {...fadeInUp} className="space-y-8">
             <span className="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur border border-white/20 rounded-full text-[11px] font-black tracking-[0.2em] uppercase">

@@ -12,9 +12,9 @@ const ContactPage = () => {
       {/* HERO */}
       <section className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 pt-28 pb-20 px-6 overflow-hidden font-['Poppins']">
         <SectionBackdrop />
-        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/25 blur-[130px] rounded-full" />
-        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/20 blur-[120px] rounded-full" />
+        <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/20 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+        <div className="absolute top-1/3 -right-40 w-[420px] h-[420px] bg-violet-400/20 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+        <div className="absolute bottom-0 left-1/4 w-[360px] h-[360px] bg-cyan-400/15 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
         <div
           className="absolute inset-0 opacity-40 pointer-events-none"
           style={{
@@ -84,8 +84,8 @@ const ContactPage = () => {
 
       {/* CTA */}
       <section className="relative bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-700 text-white py-16 px-6 text-center overflow-hidden font-['Poppins']">
-        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[100px] rounded-full" />
-        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[100px] rounded-full" />
+        <div className="absolute -top-24 -left-24 w-72 h-72 bg-white/10 blur-[80px] rounded-full" />
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-400/20 blur-[80px] rounded-full" />
         <Motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="relative z-10 max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-black tracking-tighter uppercase mb-6">
             Prefer A <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-200">Quick Call?</span>

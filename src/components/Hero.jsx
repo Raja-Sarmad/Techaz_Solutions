@@ -44,9 +44,9 @@ const Hero = () => {
       onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
     >
       {/* Decorative color blobs */}
-      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/25 rounded-full blur-[120px] animate-pulse" />
-      <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] bg-violet-400/25 rounded-full blur-[130px]" />
-      <div className="absolute bottom-0 left-1/4 w-[420px] h-[420px] bg-cyan-400/20 rounded-full blur-[120px]" />
+      <div className="absolute -top-32 -left-32 w-[480px] h-[480px] bg-blue-400/20 rounded-full blur-[80px]" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+      <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] bg-violet-400/20 rounded-full blur-[80px]" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
+      <div className="absolute bottom-0 left-1/4 w-[420px] h-[420px] bg-cyan-400/15 rounded-full blur-[80px]" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
 
       {/* Dot grid overlay */}
       <div
@@ -61,7 +61,7 @@ const Hero = () => {
       <div
         className="pointer-events-none absolute inset-0 z-10 transition-opacity duration-500"
         style={{
-          background: `radial-gradient(600px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99,102,241,0.08), transparent 40%)`,
+          background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(99,102,241,0.06), transparent 40%)`,
         }}
       />
 
@@ -181,7 +181,7 @@ const Hero = () => {
         ref={statsRef}
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20"
       >
@@ -195,7 +195,7 @@ const Hero = () => {
             <motion.div
               key={s.lbl}
               initial={{ opacity: 0, y: 30 }}
-              animate={statsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1], delay: 0.2 + i * 0.15 }}
               className="text-center"
             >
