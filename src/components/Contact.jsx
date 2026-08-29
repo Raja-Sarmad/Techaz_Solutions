@@ -1,7 +1,6 @@
 import React from 'react';
 import { Mail, Phone, MapPin, Send, Zap, ShieldCheck, Clock3 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import SectionBackdrop from './SectionBackdrop';
 import { socialLinks } from './SocialIcons';
 
 const fadeUp = {
@@ -13,10 +12,7 @@ const fadeUp = {
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100 text-left">
-      <SectionBackdrop />
-      <div className="absolute -top-20 right-1/4 w-72 h-72 bg-cyan-400/10 blur-[100px] rounded-full" />
-      <div className="absolute bottom-0 -left-20 w-80 h-80 bg-indigo-400/10 blur-[110px] rounded-full" />
+    <section id="contact" className="relative py-10 bg-white dark:bg-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100 text-left">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -59,7 +55,7 @@ const Contact = () => {
                     href={item.href}
                     target={item.href?.startsWith('http') ? '_blank' : undefined}
                     rel="noreferrer"
-                    className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-5 rounded-2xl flex items-center gap-5 shadow-lg shadow-blue-600/5 hover:border-blue-400/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-600/10 transition-all duration-300"
+                    className="group bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-5 rounded-2xl flex items-center gap-5 hover:border-blue-400/40 transition-colors duration-300"
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-600/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                       {item.icon}
@@ -113,7 +109,7 @@ const Contact = () => {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="lg:col-span-7"
           >
-            <div className="relative bg-white dark:bg-gray-900/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-gray-200 dark:border-gray-700 shadow-2xl shadow-blue-600/10">
+            <div className="relative bg-white dark:bg-gray-900/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-gray-200 dark:border-gray-700">
               <div className="absolute -top-6 left-10 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-black tracking-widest uppercase shadow-lg shadow-blue-600/20">
                 <Clock3 size={13} />
                 Avg. reply: under 2 hours

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, User, ArrowUpRight } from 'lucide-react';
-import SectionBackdrop from './SectionBackdrop';
 
 const Blog = () => {
   const posts = [
@@ -29,68 +28,68 @@ const Blog = () => {
   ];
 
   return (
-    <section id="Blog" className="relative py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100 text-left">
-      <SectionBackdrop />
+    <section id="Blog" className="relative py-10 bg-white dark:bg-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100 text-left">
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         
         {/* --- SECTION HEADER --- */}
         <div className="text-center mb-10 space-y-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold tracking-widest uppercase">
             OUR INSIGHTS
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 tracking-tight leading-tight">
+          <h2 className="font-syne text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 tracking-tight leading-tight">
             Latest Industry <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Updates.</span>
           </h2>
         </div>
 
         {/* --- BLOG GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {posts.map((post, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-blue-600/10 hover:-translate-y-1 transition-all duration-500"
+              className="group cursor-pointer relative overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-blue-300 dark:hover:border-blue-800 transition-all duration-300"
             >
               {/* Image Container */}
-              <div className="relative overflow-hidden aspect-[4/3]">
-                <img 
-                  src={post.image} 
-                  alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+              <div className="relative overflow-hidden aspect-[16/10]">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[0.2] group-hover:grayscale-0"
                 />
-                {/* Category Badge */}
-                <div className="absolute top-4 right-4 px-4 py-1.5 bg-blue-600 text-white rounded-full text-[10px] font-bold tracking-wide shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent opacity-80" />
+                <div className="absolute top-4 left-4 px-3 py-1.5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm text-blue-600 rounded-full text-[10px] font-bold tracking-wide uppercase">
                   {post.category}
                 </div>
               </div>
 
-              {/* Content Padding */}
-              <div className="p-8">
-                {/* Meta Info */}
-                <div className="flex flex-wrap items-center gap-x-4 sm:gap-x-6 gap-y-2 mb-4 text-gray-600 dark:text-gray-300 text-[11px] sm:text-xs font-bold uppercase tracking-widest">
-                  <div className="flex items-center gap-2">
-                    <Calendar size={14} className="text-blue-600" />
+              {/* Content */}
+              <div className="p-6">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-3 text-gray-500 dark:text-gray-400 text-[10px] font-semibold uppercase tracking-widest">
+                  <div className="flex items-center gap-1.5">
+                    <Calendar size={12} className="text-blue-600" />
                     <span>{post.date}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <User size={14} className="text-blue-600" />
+                  <div className="flex items-center gap-1.5">
+                    <User size={12} className="text-blue-600" />
                     <span>{post.author}</span>
                   </div>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 leading-snug mb-6 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-syne text-lg font-bold text-gray-900 dark:text-gray-100 leading-snug mb-5 group-hover:text-blue-600 transition-colors">
                   {post.title}
                 </h3>
 
-                {/* Action Link */}
-                <div className="inline-flex items-center gap-2 text-sm font-bold text-blue-600 group-hover:gap-4 transition-all uppercase tracking-widest">
-                  Read Article 
-                  <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-800">
+                  <span className="text-[11px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-blue-600 transition-colors">
+                    Read Article
+                  </span>
+                  <span className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-500 group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-indigo-600 group-hover:border-transparent group-hover:text-white transition-all">
+                    <ArrowUpRight size={14} />
+                  </span>
                 </div>
               </div>
             </motion.div>

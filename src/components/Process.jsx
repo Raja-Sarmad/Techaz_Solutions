@@ -1,7 +1,5 @@
 import React from 'react';
 import { Search, PenTool, BarChart3, Rocket, ChevronRight } from 'lucide-react';
-import SectionBackdrop from './SectionBackdrop';
-
 const Process = () => {
   const steps = [
     {
@@ -31,13 +29,12 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-900 relative overflow-hidden font-['Poppins']">
-      <SectionBackdrop />
+    <section className="py-10 bg-white dark:bg-gray-950 relative overflow-hidden font-['Poppins']">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* --- SECTION HEADER --- */}
         <div className="text-center mb-8 space-y-4">
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md shadow-blue-600/20 text-[10px] font-black tracking-widest uppercase">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-black tracking-widest uppercase">
             Work Process
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mt-8 text-gray-900 dark:text-gray-100 tracking-tight">
@@ -63,15 +60,15 @@ const Process = () => {
               {/* Concentric Circles & Icon */}
               <div className="relative mb-8">
                 {/* Outer Ring */}
-                <div className="w-32 h-32 rounded-full border border-blue-100 bg-gradient-to-br from-blue-50 to-violet-50 dark:border-blue-900 dark:from-blue-950/40 dark:to-violet-950/40 flex items-center justify-center p-4 transition-all duration-500 group-hover:scale-110 group-hover:bg-blue-500/10 group-hover:border-blue-500/30 shadow-inner">
+                <div className="w-32 h-32 rounded-full border border-blue-100 bg-blue-50/50 dark:border-blue-900 dark:bg-blue-950/40 flex items-center justify-center p-4 transition-all duration-300 group-hover:border-blue-500/30">
                   {/* Inner Ring */}
-                  <div className="w-full h-full rounded-full border border-blue-100 bg-white dark:border-blue-900 dark:bg-gray-900 flex items-center justify-center shadow-sm group-hover:border-blue-500/50">
+                  <div className="w-full h-full rounded-full border border-blue-100 bg-white dark:border-blue-900 dark:bg-gray-900 flex items-center justify-center group-hover:border-blue-500/50">
                     {step.icon}
                   </div>
                 </div>
 
                 {/* Number Badge (Top Right) */}
-                <div className="absolute top-0 right-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg border-4 border-white dark:border-gray-900 z-10 transition-transform group-hover:rotate-[360deg] duration-700">
+                <div className="absolute top-0 right-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold border-4 border-white dark:border-gray-900 z-10">
                   {step.id}
                 </div>
               </div>

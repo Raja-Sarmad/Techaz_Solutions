@@ -31,19 +31,26 @@ const Navbar = () => {
     (path === '/services' && location.pathname.startsWith('/services'));
 
   return (
-    <nav className="fixed w-full z-[100] top-0 left-0 px-4 sm:px-6 lg:px-8 py-6 pointer-events-none">
+    <nav className="fixed w-full z-[100] top-0 left-0 px-4 sm:px-6 lg:px-8 py-3 pointer-events-none">
       {/* Navbar Container */}
       <div
-        className={`max-w-7xl mx-auto flex items-center justify-center transition-all duration-500 pointer-events-auto
-          bg-white dark:bg-gray-900 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-gray-100 dark:border-gray-800 rounded-full
-          ${isScrolled ? 'py-2 px-4' : 'py-4 px-5 sm:px-8'}`}
+        className={`max-w-7xl mx-auto flex items-center gap-3 sm:gap-4 transition-all duration-300 pointer-events-auto
+          bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200/80 dark:border-gray-800 rounded-full
+          ${isScrolled ? 'py-1.5 px-3 sm:px-4 shadow-md' : 'py-2 px-3 sm:px-5 shadow-sm'}`}
       >
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group pl-2 mr-auto">
+        {/* Logo — square PNG has padding; crop via overflow + scale */}
+        <Link
+          to="/"
+          className={`group relative shrink-0 mr-auto overflow-hidden flex items-center transition-all duration-300 ${
+            isScrolled ? 'h-9 w-32 sm:w-36' : 'h-11 sm:h-12 w-40 sm:w-48 lg:w-56'
+          }`}
+        >
           <img
             src="/gallery/company-logo.png"
-            alt="Company Logo"
-            className="h-[110px] sm:h-[135px] lg:h-[150px] w-auto object-contain dark:brightness-0 dark:invert transition-transform duration-300 group-hover:scale-105 -my-8 sm:-my-10 lg:-my-12"
+            alt="Techaz Solutions"
+            className={`absolute left-0 top-1/2 -translate-y-1/2 w-auto max-w-none object-contain object-left dark:brightness-0 dark:invert transition-all duration-300 group-hover:opacity-90 ${
+              isScrolled ? 'h-20' : 'h-28 sm:h-32 lg:h-36'
+            }`}
           />
         </Link>
 
@@ -171,7 +178,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed inset-x-4 top-28 pointer-events-auto transition-all duration-500 origin-top ${
+        className={`lg:hidden fixed inset-x-4 top-[4.5rem] sm:top-20 pointer-events-auto transition-all duration-500 origin-top ${
           isOpen ? 'scale-100 opacity-100' : 'scale-95 opacity-0 pointer-events-none'
         }`}
       >

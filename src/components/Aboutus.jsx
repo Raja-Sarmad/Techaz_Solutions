@@ -65,7 +65,7 @@ const maxValue = Math.max(...chartData.map((d) => d.value));
 
 const AboutUs = () => {
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden bg-white dark:bg-gray-950 font-['Poppins']">
+    <section className="relative py-10 overflow-hidden bg-white dark:bg-gray-950 font-['Poppins']">
       {/* Decorative background */}
       <div className="absolute -top-32 -left-24 w-[420px] h-[420px] bg-gradient-to-br from-[#3B5BFF]/12 to-[#6C4DFF]/12 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
       <div className="absolute -bottom-32 -right-24 w-[420px] h-[420px] bg-gradient-to-tr from-[#6C4DFF]/12 to-[#3B5BFF]/12 blur-[80px] rounded-full" style={{ willChange: 'transform', transform: 'translateZ(0)' }} />
@@ -105,7 +105,7 @@ const AboutUs = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative flex-1 flex flex-col bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 shadow-[0_45px_90px_-25px_rgba(59,91,255,0.35)] dark:shadow-[0_45px_90px_-25px_rgba(0,0,0,0.6)] p-6 md:p-7"
+              className="relative flex-1 flex flex-col bg-white dark:bg-gray-900 rounded-[2rem] border border-gray-100 dark:border-gray-800 p-6 md:p-7"
             >
               {/* Window Header */}
               <div className="flex items-center justify-between mb-6">

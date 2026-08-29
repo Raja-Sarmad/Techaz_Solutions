@@ -12,6 +12,45 @@ export const SERVICE_CATEGORIES = [
   { key: 'Automotive', label: 'Automotive Solutions' },
 ];
 
+export const CATEGORY_META = {
+  'Marketing & Growth': {
+    icon: Megaphone,
+    grad: 'from-pink-500 to-rose-500',
+    glow: 'bg-pink-500/10',
+    border: 'group-hover:border-pink-300 dark:group-hover:border-pink-800',
+    chip: 'bg-pink-500/10 text-pink-600 dark:text-pink-400',
+    accent: 'bg-gradient-to-b from-pink-500 to-rose-500',
+    tagline: 'Ads, social, SEO and content that bring customers to your door.',
+  },
+  'Web Development': {
+    icon: Code2,
+    grad: 'from-cyan-500 to-blue-600',
+    glow: 'bg-cyan-500/10',
+    border: 'group-hover:border-cyan-300 dark:group-hover:border-cyan-800',
+    chip: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400',
+    accent: 'bg-gradient-to-b from-cyan-500 to-blue-600',
+    tagline: 'Websites, apps and platforms built to perform and scale.',
+  },
+  'Business Software': {
+    icon: Briefcase,
+    grad: 'from-amber-500 to-orange-500',
+    glow: 'bg-amber-500/10',
+    border: 'group-hover:border-amber-300 dark:group-hover:border-amber-800',
+    chip: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
+    accent: 'bg-gradient-to-b from-amber-500 to-orange-500',
+    tagline: 'CRM, automation, SaaS and tools that run your operations.',
+  },
+  Automotive: {
+    icon: Car,
+    grad: 'from-red-500 to-orange-500',
+    glow: 'bg-red-500/10',
+    border: 'group-hover:border-red-300 dark:group-hover:border-red-800',
+    chip: 'bg-red-500/10 text-red-600 dark:text-red-400',
+    accent: 'bg-gradient-to-b from-red-500 to-orange-500',
+    tagline: 'Dealer websites, listings and lead tools for the automotive trade.',
+  },
+};
+
 export const services = [
   {
     slug: 'social-media-management',

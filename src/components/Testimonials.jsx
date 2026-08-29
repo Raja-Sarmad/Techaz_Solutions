@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
-import SectionBackdrop from './SectionBackdrop';
 
 const Testimonials = () => {
   const reviews = [
@@ -26,8 +25,7 @@ const Testimonials = () => {
 
   return (
     // Top padding ko pt-32 se pt-12 (ya pt-16) kr diya hy
-    <section id="Testimonial" className="relative pt-16 pb-16 overflow-hidden bg-gradient-to-b from-white via-blue-50/40 to-slate-50 dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 font-['Poppins']">
-      <SectionBackdrop />
+    <section id="Testimonial" className="relative py-10 overflow-hidden bg-white dark:bg-gray-950 font-['Poppins']">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ExternalLink, TrendingUp, Zap, Users, Globe } from 'lucide-react';
-import SectionBackdrop from './SectionBackdrop';
 
 const projects = [
   {
@@ -85,8 +84,7 @@ const CaseStudies = () => {
   }, [index]);
 
   return (
-    <section id="CaseStudies" className="relative py-16 bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100">
-      <SectionBackdrop />
+    <section id="CaseStudies" className="relative py-10 bg-white dark:bg-gray-950 overflow-hidden font-['Poppins'] text-gray-900 dark:text-gray-100">
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
@@ -131,7 +129,7 @@ const CaseStudies = () => {
         </div>
 
         {/* SLIDER CONTAINER */}
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 backdrop-blur-sm shadow-xl shadow-slate-200/60 dark:shadow-none">
+        <div className="relative overflow-hidden rounded-[2.5rem] border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 backdrop-blur-sm">
           <Motion.div
             className="flex"
             animate={{ x: `-${index * 100}%` }}
@@ -141,7 +139,7 @@ const CaseStudies = () => {
             {extended.map((item, i) => (
               <div key={i} className="min-w-full lg:p-12 p-6 flex flex-col lg:flex-row gap-10 items-center">
                 {/* Image Section */}
-                <div className="w-full lg:w-3/5 overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700 shadow-2xl">
+                <div className="w-full lg:w-3/5 overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-700">
                   <img
                     src={item.image}
                     className="w-full h-[300px] md:h-[450px] object-cover hover:scale-110 transition-transform duration-1000"

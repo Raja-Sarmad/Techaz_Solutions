@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Code, ArrowUpRight, Zap, Globe, Cpu } from 'lucide-react';
-import SectionBackdrop from './SectionBackdrop';
 
 const ALL_PROJECTS = [
   {
@@ -187,8 +186,7 @@ const Projects = () => {
   const filtered = filter === 'All' ? ALL_PROJECTS : ALL_PROJECTS.filter(p => p.category === filter);
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-b from-slate-50 via-blue-50/50 to-white dark:from-gray-950 dark:via-blue-950/30 dark:to-gray-950 text-gray-900 dark:text-gray-100 py-16 md:py-20 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
-      <SectionBackdrop dotOpacity="opacity-25" />
+    <section className="relative bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 py-10 md:py-12 px-6 overflow-hidden selection:bg-blue-500/3" id="projects">
      
       <div className="relative z-10 max-w-7xl mx-auto">
         

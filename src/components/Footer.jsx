@@ -25,12 +25,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10">
 
           {/* LOGO */}
-          <motion.div variants={fadeUp} initial="hidden" whileInView="show" custom={0}>
-            <Link to="/" aria-label="Go to homepage">
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" custom={0} className="flex items-center">
+            <Link to="/" aria-label="Go to homepage" className="inline-block">
               <img
                 src="/gallery/company-logo-2.png"
-                alt="logo"
-                className="w-44 sm:w-52 aspect-[1.8] object-contain dark:brightness-0 dark:invert hover:scale-105 transition duration-300 drop-shadow-[0_10px_15px_rgba(0,0,0,0.3)]"
+                alt="Techaz Solutions"
+                className="h-28 sm:h-32 md:h-36 lg:h-44 xl:h-52 w-auto max-w-full object-contain dark:brightness-0 dark:invert hover:scale-105 transition duration-300"
               />
             </Link>
           </motion.div>

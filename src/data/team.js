@@ -1,5 +1,6 @@
 import nabeedImage from '../assets/about image.png';
 import sarmadImage from '../assets/about.png';
+import afraImage from '../assets/afra.jpeg';
 
 export const teamMembers = [
   {
@@ -52,7 +53,7 @@ export const teamMembers = [
     id: 'afra-saiyab',
     name: 'Afra Saiyab',
     role: 'SEO Expert',
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=400&q=80',
+    image: afraImage,
     shortBio: 'Grows organic traffic and rankings with technical SEO and content strategy.',
     bio: [
       'Afra Saiyab is the SEO brain behind Techaz. She specialises in technical SEO, keyword strategy and on-page optimisation that turns search engines into a steady stream of leads.',
